@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { menuOption } from "../../styles/HeaderTv";
 import Header from "../../components/header/Header";
+import { menuOption } from "../../styles/MenuTv";
 
 const Menu: React.FC = () => {
   return (
