@@ -17,7 +17,6 @@
 - [8.tsconfig.json の修正](#8tsconfigjson-の修正)
 - [9.index.css の修正](#9indexcss-の修正)
 - [10.index.html の修正](#10indexhtml-の修正)
-- [11.main.tsx の修正](#11maintsx-の修正)
 
 # 1.プロジェクトを作成
 
@@ -275,12 +274,4 @@ output.css を読み込むように index.html を修正する。
      <script type="module" src="/src/main.tsx"></script>
    </body>
  </html>
-```
-
-# 11.main.tsx の修正
-
-output.css を読み込むように main.tsx に以下の import を追加する。
-
-```diff
-+import "./output.css";
 ```

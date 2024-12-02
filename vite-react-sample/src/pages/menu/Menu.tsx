@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
 import Header from "../../components/header/Header";
-import { menuOption } from "../../styles/MenuTv";
+import MenuItem from "../../components/listItem/menuItem";
 
 const Menu: React.FC = () => {
   return (
@@ -9,16 +8,8 @@ const Menu: React.FC = () => {
         <Header pageTitle="メニュー" />
 
         <ul className="space-y-2 font-bold text-left">
-          <li>
-            <Link to={`/maintenance`} className={menuOption()}>
-              <span>メンテナンス</span>
-            </Link>
-          </li>
-          <li>
-            <Link to={`/status`} className={menuOption()}>
-              <span>ステータス</span>
-            </Link>
-          </li>
+          <MenuItem pagePath={"/maintenance"} pageName={"メンテナンス"} />
+          <MenuItem pagePath={"/status"} pageName={"ステータス"} />
         </ul>
       </nav>
     </>

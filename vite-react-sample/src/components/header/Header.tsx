@@ -9,7 +9,7 @@ import {
   headerOption,
 } from "../../styles/HeaderTv";
 
-interface HeaderInterface {
+interface HeaderProps {
   pageTitle: string;
 }
 
@@ -18,7 +18,7 @@ interface HeaderInterface {
  * @param pageTitle 画面名
  * @returns Header
  */
-const Header: React.FC<HeaderInterface> = ({ pageTitle }) => {
+const Header: React.FC<HeaderProps> = ({ pageTitle }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const toggleMenuOpen = () => {
     setOpenMenu(!openMenu);
@@ -35,12 +35,7 @@ const Header: React.FC<HeaderInterface> = ({ pageTitle }) => {
 
         {/* Hamburger Button */}
         {isDevelopment && (
-          <button
-            onClick={toggleMenuOpen}
-            type="button"
-            aria-description="menu"
-            className={humberger()}
-          >
+          <button onClick={toggleMenuOpen} type="button" aria-description="menu" className={humberger()}>
             <div className={humbergerLineTop({ isOpen: openMenu })} />
             <div className={humbergerLineMiddle({ isOpen: openMenu })} />
             <div className={humbergerLineBottom({ isOpen: openMenu })} />
@@ -51,16 +46,9 @@ const Header: React.FC<HeaderInterface> = ({ pageTitle }) => {
         {isDevelopment && (
           <nav className={sideBar({ isOpen: openMenu })}>
             <div className="flex justify-between items-center">
-              <h2 className="text-xl font-bold my-4 text-left text-gray-900">
-                Menu
-              </h2>
+              <h2 className="text-xl font-bold my-4 text-left text-gray-900">Menu</h2>
 
-              <button
-                onClick={toggleMenuOpen}
-                type="button"
-                aria-description="Close menu"
-                className={humberger()}
-              >
+              <button onClick={toggleMenuOpen} type="button" aria-description="Close menu" className={humberger()}>
                 <div className={humbergerLineTop({ isOpen: openMenu })} />
                 <div className={humbergerLineMiddle({ isOpen: openMenu })} />
                 <div className={humbergerLineBottom({ isOpen: openMenu })} />
@@ -81,13 +69,7 @@ const Header: React.FC<HeaderInterface> = ({ pageTitle }) => {
             </ul>
           </nav>
         )}
-        {openMenu && (
-          <div
-            className="bg-gray-900/50 fixed inset-0 z-10"
-            onClick={toggleMenuOpen}
-            aria-hidden="true"
-          ></div>
-        )}
+        {openMenu && <div className="bg-gray-900/50 fixed inset-0 z-10" onClick={toggleMenuOpen} aria-hidden="true"></div>}
       </header>
     </div>
   );
