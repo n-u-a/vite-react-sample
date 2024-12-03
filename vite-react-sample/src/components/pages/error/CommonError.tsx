@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
-import { container, errorMessage, errorTitle, errorTitleContainer, infoLogoSvg } from "../../styles/ErrorTv";
-import Header from "../../components/header/Header";
-import { isNotNullish } from "../../utils/utils";
+import { container, errorTitleContainer, infoLogoSvg, errorTitle, errorMessage } from "../../../styles/ErrorTv";
+import { isNotNullish } from "../../../utils/utils";
+import Header from "../../layouts/header/Header";
 
 const xmlNameSpace = "http://www.w3.org/2000/svg";
 const infoLogo =

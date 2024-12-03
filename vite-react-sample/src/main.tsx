@@ -2,14 +2,10 @@ import "./output.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import {
-  createBrowserRouter,
-  Navigate,
-  RouterProvider,
-} from "react-router-dom";
-import Menu from "./pages/menu/Menu";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./states/store.ts";
+import Menu from "./components/pages/menu/Menu.tsx";
 
 const router = createBrowserRouter([
   {

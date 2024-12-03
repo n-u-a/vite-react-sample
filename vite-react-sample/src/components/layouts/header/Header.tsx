@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  humberger,
-  humbergerLineTop,
-  humbergerLineMiddle,
-  humbergerLineBottom,
-  sideBar,
   headerOption,
-} from "../../styles/HeaderTv";
+  humberger,
+  humbergerLineBottom,
+  humbergerLineMiddle,
+  humbergerLineTop,
+  sideBar,
+} from "../../../styles/HeaderTv";
 
 interface HeaderProps {
   pageTitle: string;
