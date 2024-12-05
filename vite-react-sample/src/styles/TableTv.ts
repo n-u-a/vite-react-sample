@@ -28,6 +28,10 @@ export const tableData = tv({
   },
 });
 
+export const pagenationCount = tv({
+  base: "font-semibold text-gray-900",
+});
+
 export const pagenation = tv({
   base: "cursor-pointer flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border hover:bg-gray-100 hover:text-gray-700",
   variants: {

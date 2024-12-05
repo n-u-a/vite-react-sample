@@ -1,5 +1,5 @@
 import Header from "../../layouts/header/Header";
-import MenuItem from "../../usecases/menu/MenuItem";
+import MenuItem from "../../usecases/menu/listItem/MenuItem";
 
 const Menu: React.FC = () => {
   return (

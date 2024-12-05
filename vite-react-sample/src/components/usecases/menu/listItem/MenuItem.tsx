@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { menuOption } from "../../../styles/MenuTv";
+import { menuOption } from "../../../../styles/MenuTv";
 
 interface MenuItemProps {
   pagePath: string;

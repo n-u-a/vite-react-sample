@@ -6,6 +6,8 @@ import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
 import { Provider } from "react-redux";
 import { store } from "./states/store.ts";
 import Menu from "./components/pages/menu/Menu.tsx";
+import Maintenance from "./components/pages/maintenance/Maintenance.tsx";
+import Search from "./components/pages/search/Search.tsx";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,14 @@ const router = createBrowserRouter([
   {
     path: "/menu",
     element: <Menu />,
+  },
+  {
+    path: "/maintenance",
+    element: <Maintenance />,
+  },
+  {
+    path: "/search",
+    element: <Search />,
   },
 ]);
 

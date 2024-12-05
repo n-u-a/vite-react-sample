@@ -1,7 +1,7 @@
 // DialogContext.tsx
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import ConfirmationModal from "../components/uiParts/ConfirmationModal";
-import SingleActionModal from "../components/uiParts/SingleActionModal";
+import ConfirmationModal from "../components/uiParts/modal/ConfirmationModal";
+import SingleActionModal from "../components/uiParts/modal/SingleActionModal";
 
 type DialogType = "confirmation" | "singleAction" | null;
 

@@ -2,7 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import maintenanceReducer from "./reducers/maintenance/MaintenanceReducer";
 import { enableMapSet } from "immer";
 import MapMiddleware from "./middlewares/MapMiddleware";
-import statusUpdateReducer from "./reducers/status/StatusReducer";
+import searchReducer from "./reducers/status/SearchReducer";
 
 // enableMapSet プラグインを有効にする
 enableMapSet();
@@ -10,7 +10,7 @@ enableMapSet();
 // 各リデューサーを初期化
 const rootReducer = combineReducers({
   maintenance: maintenanceReducer,
-  statusUpdate: statusUpdateReducer,
+  search: searchReducer,
 });
 
 // RootState 型を定義
