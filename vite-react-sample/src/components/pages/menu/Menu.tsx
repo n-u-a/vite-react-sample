@@ -9,7 +9,7 @@ const Menu: React.FC = () => {
 
         <ul className="space-y-2 font-bold text-left">
           <MenuItem pagePath={"/maintenance"} pageName={"メンテナンス"} />
-          <MenuItem pagePath={"/status"} pageName={"ステータス"} />
+          <MenuItem pagePath={"/search"} pageName={"ステータス"} />
         </ul>
       </nav>
     </>
