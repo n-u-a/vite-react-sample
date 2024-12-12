@@ -1,5 +1,4 @@
-// DialogContext.tsx
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useState, ReactNode } from "react";
 import ConfirmationModal from "../components/uiParts/modal/ConfirmationModal";
 import SingleActionModal from "../components/uiParts/modal/SingleActionModal";
 
@@ -42,20 +41,12 @@ interface OpenDialogConfig {
   isShow?: boolean;
 }
 
-const DialogContext = createContext<DialogContextType | undefined>(undefined);
+export const DialogContext = createContext<DialogContextType | undefined>(undefined);
 
 const defaultTitle = "確認";
 const singleActionDialogButtonDefaultMessage = "閉じる";
 const confirmationDialogConfirmButtonDefaultMessage = "はい";
 const confirmationDialogCancelButtonDefaultMessage = "いいえ";
-
-export const useDialog = () => {
-  const context = useContext(DialogContext);
-  if (!context) {
-    throw new Error("useDialog must be used within a DialogProvider");
-  }
-  return context;
-};
 
 export const DialogProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [dialogConfig, setDialogConfig] = useState<OpenDialogConfig | null>(null);

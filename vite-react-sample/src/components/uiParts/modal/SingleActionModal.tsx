@@ -1,4 +1,4 @@
-import { modal } from "../../styles/ModalTv";
+import { modal } from "../../../styles/ModalTv";
 
 interface SingleActionModalProps {
   onClick: () => void;

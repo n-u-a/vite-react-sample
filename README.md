@@ -7,5 +7,5 @@
 
 ## 開発の基本的な流れ
 
-[development-guide.md](./development-guide.md)に記載しています。  
-上記ファイルを参考に開発を進めてください。
+[vite-react-sample/guide](./vite-react-sample/guide)内のファイルに記載しています。  
+上記フォルダ内のファイルを参考に開発を進めてください。

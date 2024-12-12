@@ -28,7 +28,7 @@ const Pagenation: React.FC<PagenationProps> = ({
 }) => {
   useEffect(() => {
     setPageNumber(0);
-    setStartItemPosition(1 * displayCount);
+    setStartItemPosition(0);
   }, [itemsLength]);
 
   /**

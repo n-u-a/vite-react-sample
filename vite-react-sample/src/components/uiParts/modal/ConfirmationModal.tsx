@@ -1,5 +1,5 @@
-import { modalButton } from "../../styles/ButtonTv";
-import { modal } from "../../styles/ModalTv";
+import { modalButton } from "../../../styles/ButtonTv";
+import { modal } from "../../../styles/ModalTv";
 
 export interface ConfirmationModalProps {
   onConfirm: () => void;

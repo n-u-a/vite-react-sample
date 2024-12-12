@@ -1,17 +1,19 @@
+import { Page } from "../../../constants/PageConstants";
+import { menuUnorderedList } from "../../../styles/MenuTv";
+import Footer from "../../layouts/footer/Footer";
 import Header from "../../layouts/header/Header";
 import MenuItem from "../../usecases/menu/listItem/MenuItem";
 
 const Menu: React.FC = () => {
   return (
     <>
-      <nav>
-        <Header pageTitle="メニュー" />
+      <Header pageTitle="メニュー" />
 
-        <ul className="space-y-2 font-bold text-left">
-          <MenuItem pagePath={"/maintenance"} pageName={"メンテナンス"} />
-          <MenuItem pagePath={"/search"} pageName={"ステータス"} />
-        </ul>
-      </nav>
+      <ul className={menuUnorderedList()}>
+        <MenuItem pagePath={Page.MAINTENANCE.path()} pageName={Page.MAINTENANCE.title} />
+        <MenuItem pagePath={Page.SEARCH.path()} pageName={Page.SEARCH.title} />
+      </ul>
+      <Footer />
     </>
   );
 };

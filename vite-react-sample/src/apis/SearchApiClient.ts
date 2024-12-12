@@ -7,11 +7,12 @@ import { SearchResult } from "./dto/SearchResult";
 export const searchApi = async (condition: SearchCondition): Promise<ResponseDto<Array<SearchResult>>> => {
   try {
     // APIコール
-    const response: AxiosResponse<Array<SearchResult>> = await axios.post<Array<SearchResult>>("", condition);
+    // const response: AxiosResponse<Array<SearchResult>> = await axios.post<Array<SearchResult>>("", condition);
     const result: ResponseDto<Array<SearchResult>> = {
       isSuccess: true,
       error: "",
-      data: response.data,
+      // data: response.data,
+      data: sample,
     };
     return result;
   } catch (error: unknown) {
@@ -23,3 +24,18 @@ export const searchApi = async (condition: SearchCondition): Promise<ResponseDto
     return result;
   }
 };
+
+const sample: SearchResult[] = [
+  {
+    product_code: "A001",
+    product_name: "品番1",
+    count: 100,
+    product_classification: 0,
+  },
+  {
+    product_code: "A002",
+    product_name: "品番2",
+    count: 50,
+    product_classification: 0,
+  },
+];

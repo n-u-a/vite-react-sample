@@ -1,6 +1,7 @@
 # 目次
 
 - [目次](#目次)
+- [0. 前提条件](#0-前提条件)
 - [1.プロジェクトを作成](#1プロジェクトを作成)
 - [2.動作確認](#2動作確認)
 - [3.ライブラリのインストール](#3ライブラリのインストール)
@@ -17,6 +18,12 @@
 - [8.tsconfig.json の修正](#8tsconfigjson-の修正)
 - [9.index.css の修正](#9indexcss-の修正)
 - [10.index.html の修正](#10indexhtml-の修正)
+- [11. ディレクトリ構成について](#11-ディレクトリ構成について)
+
+# 0. 前提条件
+
+20.10.0 以上の Node.js がインストールされている必要があります。
+[nvm-windows の導入と簡単な操作をやってみた](https://qiita.com/akipon0821/items/eaeffe79221cfcd4d258) などを参考に Node.js をインストールしてください。
 
 # 1.プロジェクトを作成
 
@@ -89,6 +96,7 @@ npm run dev
 | フォーム制御 | react-select    | `npm i react-select @types/react-select`                      | オートコンプリートセレクトボックスの実装に使用。                                                                  |
 | その他       | concurrently    | `npm i concurrently`                                          | npm run dev 実行時に tailwind css 用の CSS ファイルが自動的に変更されるように package.json を変更するために使用。 |
 | その他       | node            | `npm i @types/node`                                           | 実行時パスを取得するために使用。                                                                                  |
+| その他       | axios           | `npm i axios @types/axios`                                    | API 呼び出しを行うために使用。                                                                                    |
 
 # 4.自動フォーマットの設定
 
@@ -275,3 +283,8 @@ output.css を読み込むように index.html を修正する。
    </body>
  </html>
 ```
+
+# 11. ディレクトリ構成について
+
+下記資料を参考にしたディレクトリ構成になっています。
+[徹底解剖！ 医療業務システムの React コンポーネント設計](https://speakerdeck.com/medley/deep-dive-into-react-component-design-for-medical-systems?slide=19)

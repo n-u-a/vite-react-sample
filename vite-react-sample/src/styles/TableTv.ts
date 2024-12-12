@@ -2,6 +2,13 @@ import { tv } from "tailwind-variants";
 
 export const tableHeader = tv({
   base: "text-center text-base px-6 py-3 border-r border-gray-300",
+  variants: {
+    format: {
+      number: "",
+      button: "w-0 whitespace-nowrap",
+      input: "w-auto",
+    },
+  },
 });
 
 export const tableData = tv({
@@ -18,12 +25,8 @@ export const tableData = tv({
     },
     format: {
       number: "text-right",
-    },
-    isInput: {
-      true: "text-center",
-    },
-    isButton: {
-      true: "text-center",
+      button: "text-center w-0 whitespace-nowrap",
+      input: "text-center",
     },
   },
 });
