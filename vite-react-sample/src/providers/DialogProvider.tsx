@@ -4,33 +4,10 @@ import SingleActionModal from "../components/uiParts/modal/SingleActionModal";
 
 type DialogType = "confirmation" | "singleAction" | null;
 
-type OpenConfirmationConfig = {
-  title: string;
-  message: string;
-  onConfirm: () => void;
-  onCancel?: () => void;
-  confirmButtonMessage?: string;
-  cancelButtonMessage?: string;
-  isWaiting?: boolean;
-};
-type OpenSingleActionConfig = {
-  title: string;
-  message: string;
-  onClick: () => void;
-  buttonMessage?: string;
-};
-
-interface DialogContextType {
-  openDialog: (config: OpenDialogConfig) => void;
-  closeDialog: () => void;
-  openConfirmationDialog: (config: OpenConfirmationConfig) => void;
-  openSingleActionDialog: (config: OpenSingleActionConfig) => void;
-}
-
 interface OpenDialogConfig {
   type: DialogType;
+  title: string;
   message: string;
-  title?: string;
   onConfirm?: () => void;
   onCancel?: () => void;
   confirmButtonMessage?: string;
@@ -38,15 +15,29 @@ interface OpenDialogConfig {
   buttonMessage?: string;
   onClick?: () => void;
   isWaiting?: boolean;
-  isShow?: boolean;
+}
+
+interface DialogContextType {
+  openDialog: (config: OpenDialogConfig) => void;
+  closeDialog: () => void;
+  openConfirmationDialog: (config: Omit<OpenDialogConfig, "type">) => void;
+  openSingleActionDialog: (config: Omit<OpenDialogConfig, "type">) => void;
 }
 
 export const DialogContext = createContext<DialogContextType | undefined>(undefined);
 
-const defaultTitle = "確認";
-const singleActionDialogButtonDefaultMessage = "閉じる";
-const confirmationDialogConfirmButtonDefaultMessage = "はい";
-const confirmationDialogCancelButtonDefaultMessage = "いいえ";
+const defaultValues = {
+  confirmation: {
+    title: "確認",
+    confirmButtonMessage: "はい",
+    cancelButtonMessage: "いいえ",
+    isWaiting: false,
+  },
+  singleAction: {
+    title: "確認",
+    buttonMessage: "閉じる",
+  },
+};
 
 export const DialogProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [dialogConfig, setDialogConfig] = useState<OpenDialogConfig | null>(null);
@@ -59,40 +50,63 @@ export const DialogProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     setDialogConfig(null);
   };
 
-  const openConfirmationDialog = ({
-    title,
-    message,
-    onConfirm,
-    onCancel = closeDialog,
-    confirmButtonMessage = confirmationDialogConfirmButtonDefaultMessage,
-    cancelButtonMessage = confirmationDialogCancelButtonDefaultMessage,
-    isWaiting = false,
-  }: OpenConfirmationConfig) => {
+  const openConfirmationDialog = (config: Omit<OpenDialogConfig, "type">) => {
     openDialog({
       type: "confirmation",
-      title: title,
-      message: message,
-      onConfirm: onConfirm,
-      onCancel: onCancel,
-      confirmButtonMessage: confirmButtonMessage,
-      cancelButtonMessage: cancelButtonMessage,
-      isWaiting: isWaiting,
+      ...defaultValues.confirmation,
+      ...config,
     });
   };
 
-  const openSingleActionDialog = ({
-    title,
-    message,
-    buttonMessage = singleActionDialogButtonDefaultMessage,
-    onClick = () => {},
-  }: OpenSingleActionConfig) => {
+  const openSingleActionDialog = (config: Omit<OpenDialogConfig, "type">) => {
     openDialog({
       type: "singleAction",
-      title: title,
-      message: message,
-      buttonMessage: buttonMessage,
-      onClick,
+      ...defaultValues.singleAction,
+      ...config,
     });
+  };
+
+  const renderDialog = () => {
+    if (!dialogConfig) return null;
+
+    const modalCommonProps = {
+      isShow: true,
+      title: dialogConfig.title,
+      message: dialogConfig.message,
+    };
+
+    switch (dialogConfig.type) {
+      case "confirmation":
+        return (
+          <ConfirmationModal
+            {...modalCommonProps}
+            onConfirm={() => {
+              dialogConfig.onConfirm?.();
+              closeDialog();
+            }}
+            onCancel={() => {
+              dialogConfig.onCancel?.();
+              closeDialog();
+            }}
+            confirmButtonMessage={dialogConfig.confirmButtonMessage!}
+            cancelButtonMessage={dialogConfig.cancelButtonMessage!}
+            isWaiting={dialogConfig.isWaiting || false}
+          />
+        );
+      case "singleAction":
+        return (
+          <SingleActionModal
+            {...modalCommonProps}
+            buttonMessage={dialogConfig.buttonMessage!}
+            onClick={() => {
+              dialogConfig.onClick?.();
+              closeDialog();
+            }}
+          />
+        );
+      default:
+        return null;
+    }
   };
 
   return (
@@ -105,36 +119,7 @@ export const DialogProvider: React.FC<{ children: ReactNode }> = ({ children }) 
       }}
     >
       {children}
-      {dialogConfig?.type === "confirmation" && (
-        <ConfirmationModal
-          isShow={true}
-          title={dialogConfig.title || defaultTitle}
-          message={dialogConfig.message}
-          onConfirm={() => {
-            dialogConfig.onConfirm?.();
-            closeDialog();
-          }}
-          onCancel={() => {
-            dialogConfig.onCancel?.();
-            closeDialog();
-          }}
-          confirmButtonMessage={dialogConfig.confirmButtonMessage || confirmationDialogConfirmButtonDefaultMessage}
-          cancelButtonMessage={dialogConfig.cancelButtonMessage || confirmationDialogCancelButtonDefaultMessage}
-          isWaiting={dialogConfig.isWaiting || false}
-        />
-      )}
-      {dialogConfig?.type === "singleAction" && (
-        <SingleActionModal
-          isShow={true}
-          title={dialogConfig.title || defaultTitle}
-          message={dialogConfig.message}
-          buttonMessage={dialogConfig.buttonMessage || singleActionDialogButtonDefaultMessage}
-          onClick={() => {
-            dialogConfig.onClick?.();
-            closeDialog();
-          }}
-        />
-      )}
+      {renderDialog()}
     </DialogContext.Provider>
   );
 };

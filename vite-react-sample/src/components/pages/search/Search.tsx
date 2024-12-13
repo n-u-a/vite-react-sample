@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { setCondition } from "../../../states/reducers/status/SearchReducer";
 import { DialogProvider } from "../../../providers/DialogProvider";
 
-// TODO dialog providerのリファクタと説明
+// TODO  dialog providerの説明
 // 一旦いらないファイル消す
 
 const Search: React.FC = () => {
