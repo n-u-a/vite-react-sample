@@ -1,7 +1,7 @@
 import { useLocation, useParams } from "react-router-dom";
 
 const Detail: React.FC = () => {
-  // Linkで渡されたstateの取得
+  // Linkタグに渡されたstateの取得
   const location = useLocation();
   const { productName } = location.state;
 

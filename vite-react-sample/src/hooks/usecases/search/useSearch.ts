@@ -30,7 +30,8 @@ export const useSearch = () => {
     revalidateOnReconnect: false, // 再接続時に再フェッチを行わない
     errorRetryCount: 0, // エラー時の自動再試行を行わない
     onError: (err) => {
-      navigateToErrorPage("エラー画面タイトル", "検索中にエラーが発生しました。", "danger", err.message);
+      // fetcherでエラーが発生した場合の処理
+      navigateToErrorPage({ title: "エラー", message: "検索中にエラーが発生しました。", detail: err.message });
     },
   });
 

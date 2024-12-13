@@ -18,12 +18,12 @@
 - [8.tsconfig.json の修正](#8tsconfigjson-の修正)
 - [9.index.css の修正](#9indexcss-の修正)
 - [10.index.html の修正](#10indexhtml-の修正)
-- [11. ディレクトリ構成について](#11-ディレクトリ構成について)
+- [11.ディレクトリ構成について](#11ディレクトリ構成について)
 
 # 0. 前提条件
 
-20.10.0 以上の Node.js がインストールされている必要があります。
-[nvm-windows の導入と簡単な操作をやってみた](https://qiita.com/akipon0821/items/eaeffe79221cfcd4d258) などを参考に Node.js をインストールしてください。
+バージョンが20.10.0以上のNode.jsがインストールされている必要があります。
+[nvm-windows の導入と簡単な操作をやってみた](https://qiita.com/akipon0821/items/eaeffe79221cfcd4d258) などを参考にNode.jsをインストールしてください。
 
 # 1.プロジェクトを作成
 
@@ -90,7 +90,7 @@ npm run dev
 | 状態管理     | immer           | `npm i immer @types/immer`                                    | Redux をより柔軟に扱えるようにするために追加。必須ではありません。                                                |
 | 画面遷移     | react-router    | `npm i react-router-dom @types/react-router-dom`              |                                                                                                                   |
 | CSS 管理     | tailwind CSS    | `npm i tailwindcss tailwind-variants`                         |                                                                                                                   |
-| CSS 管理     | post css        | `npm i postcss autoprefixer`                                  |                                                                                                                   |
+| CSS 管理     | postcss        | `npm i postcss autoprefixer`                                  |                                                                                                                   |
 | フォーム制御 | react-hook-form | `npm i react-hook-form`                                       | Form の管理に使用。                                                                                               |
 | フォーム制御 | Zod             | `npm i @hookform/resolvers zod`                               | Form のバリデーションに使用。                                                                                     |
 | フォーム制御 | react-select    | `npm i react-select @types/react-select`                      | オートコンプリートセレクトボックスの実装に使用。                                                                  |
@@ -284,7 +284,8 @@ output.css を読み込むように index.html を修正する。
  </html>
 ```
 
-# 11. ディレクトリ構成について
+# 11.ディレクトリ構成について
 
 下記資料を参考にしたディレクトリ構成になっています。
-[徹底解剖！ 医療業務システムの React コンポーネント設計](https://speakerdeck.com/medley/deep-dive-into-react-component-design-for-medical-systems?slide=19)
+
+参考：[徹底解剖！ 医療業務システムの React コンポーネント設計](https://speakerdeck.com/medley/deep-dive-into-react-component-design-for-medical-systems?slide=19)

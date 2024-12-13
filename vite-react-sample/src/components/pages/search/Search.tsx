@@ -10,8 +10,8 @@ import { useDispatch } from "react-redux";
 import { setCondition } from "../../../states/reducers/status/SearchReducer";
 import { DialogProvider } from "../../../providers/DialogProvider";
 
-// TODO 6.検索画面の実装.mdを引き続き作成。useErrorNavigationの作成から。
-// swrとreduxについての説明も別のファイルで簡単に記載したほうがよい
+// TODO dialog providerのリファクタと説明
+// 一旦いらないファイル消す
 
 const Search: React.FC = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,6 @@ const Search: React.FC = () => {
   /**
    * 検索Formのsubmit時の処理。
    * @param data 検索条件
-   * @returns
    */
   const onSubmit = (data: SearchFormInputs) => {
     const param: SearchCondition = {
