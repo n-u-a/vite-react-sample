@@ -20,34 +20,28 @@ const Header: React.FC<HeaderProps> = ({ pageTitle }) => {
     setOpenMenu(!openMenu);
   };
 
-  // npm run dev実行時はMODEがdevelopmentになる。npm run buildではならない。
-  const mode = import.meta.env.MODE;
-  const isDevelopment = mode == "development";
-
   return (
-    <div className="mx-auto">
-      <header className="flex justify-between items-center py-3">
-        <h1 className="text-xl font-extrabold">{pageTitle}</h1>
+    <header className="mx-auto flex justify-between items-center py-3">
+      <h1 className="text-xl font-extrabold">{pageTitle}</h1>
 
-        {isDevelopment && <Humberger isOpen={openMenu} toggle={toggleMenuOpen} />}
+      <Humberger isOpen={openMenu} toggle={toggleMenuOpen} />
 
-        {/* サイドバー */}
-        {isDevelopment && (
-          <nav className={sideBar({ isOpen: openMenu })}>
-            <div className="flex justify-between items-center">
-              <h2 className="text-xl font-bold my-4 text-left text-gray-900">Menu</h2>
-              <Humberger isOpen={openMenu} toggle={toggleMenuOpen} />
-            </div>
+      {/* サイドバー */}
+      <nav className={sideBar({ isOpen: openMenu })}>
+        <div className="flex justify-between items-center">
+          <h2 className="text-xl font-bold my-4 text-left text-gray-900">Menu</h2>
+          <Humberger isOpen={openMenu} toggle={toggleMenuOpen} />
+        </div>
 
-            <ul className={menuUnorderedList()}>
-              <MenuItem pagePath={Page.MAINTENANCE.path()} pageName={Page.MAINTENANCE.title} />
-              <MenuItem pagePath={Page.SEARCH.path()} pageName={Page.SEARCH.title} />
-            </ul>
-          </nav>
-        )}
-        {openMenu && <div className="bg-gray-900/50 fixed inset-0 z-10" onClick={toggleMenuOpen} aria-hidden="true"></div>}
-      </header>
-    </div>
+        <ul className={menuUnorderedList()}>
+          <MenuItem pagePath={Page.MAINTENANCE.path()} pageName={Page.MAINTENANCE.title} />
+          <MenuItem pagePath={Page.SEARCH.path()} pageName={Page.SEARCH.title} />
+        </ul>
+      </nav>
+
+      {/* 背景色 */}
+      {openMenu && <div className="bg-gray-900/50 fixed inset-0 z-10" onClick={toggleMenuOpen} aria-hidden="true"></div>}
+    </header>
   );
 };
 

@@ -13,6 +13,9 @@ import { DialogProvider } from "../../../providers/DialogProvider";
 // TODO  dialog providerの説明
 // 一旦いらないファイル消す
 
+// これ読む
+// [【React】なぜコンポーネントの中でコンポーネントを作るのは良くないのか？](https://zenn.dev/dinii/articles/7eba16ed5513c1)
+
 const Search: React.FC = () => {
   const dispatch = useDispatch();
   const { condition, searchResults, isWaiting, search } = useSearch();
