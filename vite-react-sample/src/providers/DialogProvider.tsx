@@ -89,7 +89,7 @@ export const DialogProvider: React.FC<{ children: ReactNode }> = ({ children }) 
             }}
             confirmButtonMessage={dialogConfig.confirmButtonMessage!}
             cancelButtonMessage={dialogConfig.cancelButtonMessage!}
-            isWaiting={dialogConfig.isWaiting || false}
+            isWaiting={dialogConfig.isWaiting!}
           />
         );
       case "singleAction":
