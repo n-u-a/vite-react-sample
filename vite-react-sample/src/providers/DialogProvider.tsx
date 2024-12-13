@@ -27,13 +27,13 @@ interface DialogContextType {
 export const DialogContext = createContext<DialogContextType | undefined>(undefined);
 
 const defaultValues = {
-  confirmation: {
+  confirmationDialog: {
     title: "確認",
     confirmButtonMessage: "はい",
     cancelButtonMessage: "いいえ",
     isWaiting: false,
   },
-  singleAction: {
+  singleActionDialog: {
     title: "確認",
     buttonMessage: "閉じる",
   },
@@ -53,7 +53,7 @@ export const DialogProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   const openConfirmationDialog = (config: Omit<OpenDialogConfig, "type">) => {
     openDialog({
       type: "confirmation",
-      ...defaultValues.confirmation,
+      ...defaultValues.confirmationDialog,
       ...config,
     });
   };
@@ -61,7 +61,7 @@ export const DialogProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   const openSingleActionDialog = (config: Omit<OpenDialogConfig, "type">) => {
     openDialog({
       type: "singleAction",
-      ...defaultValues.singleAction,
+      ...defaultValues.singleActionDialog,
       ...config,
     });
   };
