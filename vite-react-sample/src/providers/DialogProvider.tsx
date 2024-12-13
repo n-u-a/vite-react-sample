@@ -12,7 +12,6 @@ interface OpenDialogConfig {
   onCancel?: () => void;
   confirmButtonMessage?: string;
   cancelButtonMessage?: string;
-  buttonMessage?: string;
   onClick?: () => void;
   isWaiting?: boolean;
 }
@@ -35,7 +34,7 @@ const defaultValues = {
   },
   singleActionDialog: {
     title: "確認",
-    buttonMessage: "閉じる",
+    confirmButtonMessage: "閉じる",
   },
 };
 
@@ -97,7 +96,7 @@ export const DialogProvider: React.FC<{ children: ReactNode }> = ({ children }) 
         return (
           <SingleActionModal
             {...modalCommonProps}
-            buttonMessage={dialogConfig.buttonMessage!}
+            buttonMessage={dialogConfig.confirmButtonMessage!}
             onClick={() => {
               dialogConfig.onClick?.();
               closeDialog();
