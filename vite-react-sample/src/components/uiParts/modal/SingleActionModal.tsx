@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useRef } from "react";
 import { modal } from "../../../styles/ModalTv";
 import ModalButton from "../button/ModalButton";
 
@@ -11,19 +11,19 @@ interface SingleActionModalProps {
 }
 
 /**
- * 確認ボタンを持つモーダルダイアログ。
+ * ボタンを1つ持つモーダルダイアログ。
  *
  * @params title モーダルに表示するタイトル。
  * @params message モーダルに表示するメッセージ
  * @params isShow モーダルの表示切替に使用するフラグ。trueの場合に表示する。
- * @params buttonMessage 確認ボタンの文言
- * @params onClick 確認ボタン押下時の処理
+ * @params buttonMessage ボタンの文言
+ * @params onClick ボタン押下時の処理
  * @returns SingleActionModal
  */
 const SingleActionModal: React.FC<SingleActionModalProps> = ({ isShow, title, message, buttonMessage, onClick }) => {
-  const modalRef = React.useRef<HTMLDialogElement>(null);
+  const modalRef = useRef<HTMLDialogElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const dialog = modalRef.current;
     if (!dialog) return;
 

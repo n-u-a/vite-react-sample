@@ -17,7 +17,7 @@ export const Page = {
   SEARCH: { title: "検索画面", path: () => "/search" } as PageTitleAndPath<[]>,
   SEARCH_DETAIL: {
     title: "詳細画面",
-    path: (param1: string) => `/search/detail/${param1}`,
+    path: (id: string) => `/search/detail/${id}`,
   } as PageTitleAndPath<[string]>,
   MAINTENANCE: { title: "メンテナンス画面", path: () => "/maintenance" } as PageTitleAndPath<[]>,
   ERROR: { title: "エラー画面", path: () => "/error" } as PageTitleAndPath<[]>,

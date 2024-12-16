@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useRef } from "react";
 import { modal } from "../../../styles/ModalTv";
 import CloseIcon from "../button/CloseIcon";
 import ModalButton from "../button/ModalButton";
@@ -37,9 +37,9 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
   confirmButtonMessage,
   cancelButtonMessage,
 }) => {
-  const modalRef = React.useRef<HTMLDialogElement>(null);
+  const modalRef = useRef<HTMLDialogElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const dialog = modalRef.current;
     if (!dialog) return;
 

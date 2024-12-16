@@ -1,11 +1,11 @@
 import { modalButton } from "../../../styles/ButtonTv";
 
-interface ButtonProps {
+interface CloseIconProps {
   isWaiting?: boolean;
   onClick: () => void;
 }
 
-const CloseIcon: React.FC<ButtonProps> = ({ isWaiting = false, onClick }) => {
+const CloseIcon: React.FC<CloseIconProps> = ({ isWaiting = false, onClick }) => {
   return (
     <button
       onClick={onClick}

@@ -42,8 +42,8 @@ const SearchResultTable: React.FC<SearchResultTableProps> = ({ searchResults }) 
               title: "削除します。",
               message: "本当に削除してよろしいですか？",
               onConfirm: () => {
-                closeDialog();
                 alert("削除しました！");
+                closeDialog();
               },
             });
           }}

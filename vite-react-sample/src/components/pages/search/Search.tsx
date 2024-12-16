@@ -8,13 +8,7 @@ import SearchForm, { SearchFormInputs } from "../../usecases/search/form/SearchF
 import { Page } from "../../../constants/PageConstants";
 import { useDispatch } from "react-redux";
 import { setCondition } from "../../../states/reducers/status/SearchReducer";
-import { DialogProvider } from "../../../providers/DialogProvider";
-
-// TODO  dialog providerの説明
-// 一旦いらないファイル消す
-
-// これ読む
-// [【React】なぜコンポーネントの中でコンポーネントを作るのは良くないのか？](https://zenn.dev/dinii/articles/7eba16ed5513c1)
+import { ModalDialogProvider } from "../../../providers/ModalDialogProvider";
 
 const Search: React.FC = () => {
   const dispatch = useDispatch();
@@ -37,14 +31,14 @@ const Search: React.FC = () => {
 
   return (
     <>
-      <DialogProvider>
+      <ModalDialogProvider>
         <Header pageTitle={Page.SEARCH.title} />
         <Accordion title="検索条件">
           <SearchForm onSubmit={onSubmit} isWaiting={isWaiting} condition={condition} />
         </Accordion>
         <SearchResultTable searchResults={searchResults} />
         <Footer />
-      </DialogProvider>
+      </ModalDialogProvider>
     </>
   );
 };

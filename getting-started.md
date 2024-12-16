@@ -14,10 +14,10 @@
   - [5.3.postcss.config.js 作成](#53postcssconfigjs-作成)
   - [5.4.main.tsx 修正](#54maintsx-修正)
 - [6.vite.config.ts の設定](#6viteconfigts-の設定)
-- [7.tsconfig.node.json の修正](#7tsconfignodejson-の修正)
-- [8.tsconfig.json の修正](#8tsconfigjson-の修正)
-- [9.index.css の修正](#9indexcss-の修正)
-- [10.index.html の修正](#10indexhtml-の修正)
+- [7.tsconfig.node.jsonの修正](#7tsconfignodejsonの修正)
+- [8.tsconfig.jsonの修正](#8tsconfigjsonの修正)
+- [9.index.cssの修正](#9indexcssの修正)
+- [10.index.htmlの修正](#10indexhtmlの修正)
 - [11.ディレクトリ構成について](#11ディレクトリ構成について)
 
 # 0. 前提条件
@@ -123,13 +123,13 @@ scripts を以下のように修正する。
 これにより、npm run dev 実行時に tailwind css 用の CSS ファイルが自動的に変更されるようになる。
 
 ```json
-  "scripts": {
-    "dev:tailwind": "npx tailwindcss -i ./src/index.css -o ./src/output.css --watch",
-    "dev": "concurrently \"npm run dev:tailwind\" \"vite\"",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
+"scripts": {
+  "dev:tailwind": "npx tailwindcss -i ./src/index.css -o ./src/output.css --watch",
+  "dev": "concurrently \"npm run dev:tailwind\" \"vite\"",
+  "build": "tsc && vite build",
+  "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+  "preview": "vite preview"
+},
 ```
 
 ## 5.2.tailwind.config.js 作成
@@ -170,8 +170,8 @@ import "./output.css";
 
 # 6.vite.config.ts の設定
 
-vite.config.ts を以下のように修正する。  
-ビルドした dist パッケージを配置した際に、URL に直接アクセスしても正しくアクセスできるようにするため。
+vite.config.tsを以下のように修正する。  
+ビルドしたdistパッケージを配置した際に、URLに直接アクセスしても正しくアクセスできるようにするため。
 
 ```typescript
 import { defineConfig } from "vite";
@@ -195,9 +195,9 @@ export default defineConfig({
 });
 ```
 
-# 7.tsconfig.node.json の修正
+# 7.tsconfig.node.jsonの修正
 
-tsconfig.node.json を以下のように修正する。
+tsconfig.node.jsonを以下のように修正する。
 
 ```json
 {
@@ -213,7 +213,7 @@ tsconfig.node.json を以下のように修正する。
 }
 ```
 
-# 8.tsconfig.json の修正
+# 8.tsconfig.jsonの修正
 
 tsconfig.json を以下のように修正する。
 
@@ -245,7 +245,7 @@ tsconfig.json を以下のように修正する。
 }
 ```
 
-# 9.index.css の修正
+# 9.index.cssの修正
 
 index.css を以下のように修正する。  
 なお、#root 要素に関する記載は任意。
@@ -263,9 +263,9 @@ index.css を以下のように修正する。
 }
 ```
 
-# 10.index.html の修正
+# 10.index.htmlの修正
 
-output.css を読み込むように index.html を修正する。
+output.cssを読み込むようにindex.htmlを修正する。
 
 ```diff
 <!DOCTYPE html>
@@ -288,4 +288,4 @@ output.css を読み込むように index.html を修正する。
 
 下記資料を参考にしたディレクトリ構成になっています。
 
-参考：[徹底解剖！ 医療業務システムの React コンポーネント設計](https://speakerdeck.com/medley/deep-dive-into-react-component-design-for-medical-systems?slide=19)
+参考：[徹底解剖！医療業務システムのReactコンポーネント設計](https://speakerdeck.com/medley/deep-dive-into-react-component-design-for-medical-systems?slide=19)

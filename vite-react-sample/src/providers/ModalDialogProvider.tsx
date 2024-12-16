@@ -38,7 +38,7 @@ const defaultValues = {
   },
 };
 
-export const DialogProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const ModalDialogProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [dialogConfig, setDialogConfig] = useState<OpenDialogConfig | null>(null);
 
   const openDialog = (config: OpenDialogConfig) => {
