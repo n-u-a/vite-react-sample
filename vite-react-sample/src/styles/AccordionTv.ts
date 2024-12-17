@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const accordion = tv({
-  base: "bg-gray-100 mb-4 rounded-t-md",
+  base: "bg-gray-100 mb-4 rounded",
 });
 
 export const accordionTitle = tv({

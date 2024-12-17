@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const form = tv({
-  base: "mb-1 bg-gray-100 p-2 rounded",
+  base: "mb-1 bg-gray-100 p-2 rounded-b border-x border-b border-gray-200",
 });
 
 export const formCriteriaInputArea = tv({
