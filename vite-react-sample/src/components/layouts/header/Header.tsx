@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ pageTitle }) => {
 
   return (
     <header className="mx-auto flex justify-between items-center py-3">
-      <h1 className="text-xl font-extrabold">{pageTitle}</h1>
+      <h1 className="text-2xl font-extrabold">{pageTitle}</h1>
 
       <Humberger isOpen={openMenu} toggle={toggleMenuOpen} />
 

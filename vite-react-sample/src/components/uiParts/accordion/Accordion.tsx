@@ -7,6 +7,7 @@ import {
   accordionToggleButtonIcon,
 } from "../../../styles/AccordionTv";
 import { accordionButtonIcon, xmlNameSpace } from "../../../constants/SvgConstants";
+import { header1 } from "../../../styles/CommonTv";
 
 interface SearchConditionAccordionProps {
   isOpen?: boolean; // 外部で制御される開閉状態
@@ -31,7 +32,7 @@ const SearchConditionAccordion: React.FC<SearchConditionAccordionProps> = ({
 
   return (
     <div id="accordion-collapse" data-accordion="collapse" className={accordion()}>
-      <h2 id="accordion-collapse-heading-1">
+      <h1 id="accordion-collapse-heading-1" className={header1()}>
         <button
           type="button"
           className={accordionToggleButton({ isOpen })}
@@ -52,7 +53,7 @@ const SearchConditionAccordion: React.FC<SearchConditionAccordionProps> = ({
             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={accordionButtonIcon} />
           </svg>
         </button>
-      </h2>
+      </h1>
       <div
         id="accordion-collapse-body-1"
         className={accordionChildren({ isOpen })}

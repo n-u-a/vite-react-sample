@@ -5,7 +5,7 @@ export const accordion = tv({
 });
 
 export const accordionTitle = tv({
-  base: "text-lg list-none",
+  base: "list-none",
 });
 
 export const accordionToggleButton = tv({

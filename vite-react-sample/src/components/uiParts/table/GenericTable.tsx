@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { slice } from "lodash";
 import Pagenation from "../pagenation/Pagenation";
-import { subHeader } from "../../../styles/CommonTv";
+import { header1 } from "../../../styles/CommonTv";
 import { table, tableData, tableHeader, tableHeaderRow, tableRow } from "../../../styles/TableTv";
 
 /**
@@ -33,6 +33,9 @@ export interface ColumnDefinition<T> {
 }
 
 export interface GenericTableProps<T> {
+  /**
+   * テーブルのタイトル(オプション)
+   */
   title?: string;
   /**
    * tdのリスト
@@ -43,7 +46,7 @@ export interface GenericTableProps<T> {
    */
   columns: ColumnDefinition<T>[];
   /**
-   * 1ページに表示する上限値
+   * 1ページに表示する上限値(オプション)
    */
   displayCount?: number;
 }
@@ -56,7 +59,7 @@ const GenericTable = <T,>({ title, data, columns, displayCount = 10 }: GenericTa
     <>
       {data.length > 0 && (
         <>
-          {title && <h2 className={subHeader()}>{title}</h2>}
+          {title && <h1 className={header1()}>{title}</h1>}
           <Pagenation
             pageNumber={pageNumber}
             setPageNumber={setPageNumber}
