@@ -1,12 +1,30 @@
 import { tv } from "tailwind-variants";
 
+export const table = tv({
+  base: "w-full table-auto text-sm text-left rtl:text-right text-gray-500 relative shadow-md overflow-x-auto rounded-md",
+});
+
 export const tableHeader = tv({
+  base: "text-xs text-gray-700 bg-gray-200",
+});
+
+export const tableHeaderRow = tv({
   base: "text-center text-base px-6 py-3 border-r border-gray-300",
   variants: {
     format: {
       number: "",
       button: "w-0 whitespace-nowrap",
       input: "w-auto",
+    },
+  },
+});
+
+export const tableRow = tv({
+  base: "bg-white hover:bg-gray-50 rounded-md",
+  variants: {
+    isLastItem: {
+      true: "",
+      false: "border-b",
     },
   },
 });

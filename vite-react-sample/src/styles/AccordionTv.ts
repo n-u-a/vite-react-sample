@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const accordion = tv({
-  base: "bg-gray-100 mb-4 rounded",
+  base: "bg-gray-100 mb-4 rounded-md",
 });
 
 export const accordionTitle = tv({
@@ -9,7 +9,13 @@ export const accordionTitle = tv({
 });
 
 export const accordionToggleButton = tv({
-  base: "flex items-center justify-between w-full p-2 font-medium rtl:text-right text-gray-900 border border-gray-200 rounded-t-md hover:bg-gray-100 gap-3",
+  base: "flex items-center justify-between w-full p-2 font-medium rtl:text-right text-gray-900 border border-gray-200  hover:bg-gray-100 gap-3",
+  variants: {
+    isOpen: {
+      true: "rounded-t-md",
+      false: "rounded-md",
+    },
+  },
 });
 
 export const accordionToggleButtonIcon = tv({
