@@ -84,19 +84,24 @@ npm run dev
 本実装時には適宜置き換えてください。
 バージョンは本サンプル作成時の最新バージョンを採用しています。
 
-| 用途         | ライブラリ名    | インストールコマンド                                          | 補足                                                                                                              |
-| ------------ | --------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| 状態管理     | Redux           | `npm i react-redux redux @types/react-redux @reduxjs/toolkit` | エコシステムの大きさから Redux を採用。学習コストを鑑みると jotai, Zustand が挙げられる。                         |
-| 状態管理     | immer           | `npm i immer @types/immer`                                    | Redux をより柔軟に扱えるようにするために追加。必須ではありません。                                                |
-| 画面遷移     | react-router    | `npm i react-router-dom @types/react-router-dom`              |                                                                                                                   |
-| CSS 管理     | tailwind CSS    | `npm i tailwindcss tailwind-variants`                         |                                                                                                                   |
-| CSS 管理     | postcss        | `npm i postcss autoprefixer`                                  |                                                                                                                   |
-| フォーム制御 | react-hook-form | `npm i react-hook-form`                                       | Form の管理に使用。                                                                                               |
-| フォーム制御 | Zod             | `npm i @hookform/resolvers zod`                               | Form のバリデーションに使用。                                                                                     |
-| フォーム制御 | react-select    | `npm i react-select @types/react-select`                      | オートコンプリートセレクトボックスの実装に使用。                                                                  |
-| その他       | concurrently    | `npm i concurrently`                                          | npm run dev 実行時に tailwind css 用の CSS ファイルが自動的に変更されるように package.json を変更するために使用。 |
-| その他       | node            | `npm i @types/node`                                           | 実行時パスを取得するために使用。                                                                                  |
-| その他       | axios           | `npm i axios @types/axios`                                    | API 呼び出しを行うために使用。                                                                                    |
+|       用途       |  ライブラリ名   |                           コマンド                            |                                                    補足                                                     |
+| ---------------- | --------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| 状態管理         | Redux           | `npm i react-redux redux @types/react-redux @reduxjs/toolkit` | エコシステムの大きさからReduxを採用。学習コストを鑑みるとjotai, Zustandが挙げられる。(※1)                   |
+| 状態管理         | immer           | `npm i immer @types/immer`                                    | Reduxをより柔軟に扱えるようにするために追加。必須ではありません。                                           |
+| ルーティング     | React Router    | `npm i react-router-dom @types/react-router-dom`              | その他の選択肢としてTanstack Routerが挙げられる。2023年12月にv1.0を迎えた比較的新しいライブラリ。(※2)       |
+| CSS管理          | Tailwind CSS    | `npm i tailwindcss tailwind-variants`                         |                                                                                                             |
+| CSS管理          | postcss         | `npm i postcss autoprefixer`                                  |                                                                                                             |
+| フォーム制御     | react-hook-form | `npm i react-hook-form`                                       | Form の管理に使用。                                                                                         |
+| フォーム制御     | Zod             | `npm i @hookform/resolvers zod`                               | Form のバリデーションに使用。                                                                               |
+| フォーム制御     | react-select    | `npm i react-select @types/react-select`                      | オートコンプリートセレクトボックスの実装に使用。                                                            |
+| HTTPクライアント | axios           | `npm i axios @types/axios`                                    | HTTPクライアントとして採用。                                                                                |
+| データフェッチ   | swr             | `npm i swr`                                                   | データフェッチライブラリとして採用。(※3)                                                                    |
+| その他           | concurrently    | `npm i concurrently`                                          | `npm run dev`実行時にTailwindCSS用のCSSファイルが自動的に変更されるようにpackage.jsonを変更するために使用。 |
+| その他           | node            | `npm i @types/node`                                           | 実行時パスを取得するために使用。                                                                            |
+
+※1 [jotai,zustandについて](./vite-react-sample/guide/Reduxについて.md#補足)  
+※2 [【2024年】React Router & TanStack Router比較](https://zenn.dev/aishift/articles/f5469d88ea1c53)  
+※3 [swrについて](./vite-react-sample/guide/7_検索画面の実装2.md#721swr概説)  
 
 # 4.自動フォーマットの設定
 
