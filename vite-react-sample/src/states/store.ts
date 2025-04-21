@@ -1,7 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import maintenanceReducer from "./reducers/maintenance/MaintenanceReducer";
 import { enableMapSet } from "immer";
-import MapMiddleware from "./middlewares/MapMiddleware";
 import searchReducer from "./reducers/status/SearchReducer";
 
 // enableMapSet プラグインを有効にする
