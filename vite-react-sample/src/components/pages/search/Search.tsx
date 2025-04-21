@@ -1,14 +1,14 @@
-import Header from "../../layouts/header/Header";
-import Footer from "../../layouts/footer/Footer";
-import { SearchCondition } from "../../../apis/dto/SearchCondition";
-import Accordion from "../../uiParts/accordion/Accordion";
-import { useSearch } from "../../../hooks/usecases/search/useSearch";
-import SearchResultTable from "../../usecases/search/table/SearchResultTable";
-import SearchForm, { SearchFormInputs } from "../../usecases/search/form/SearchForm";
-import { Page } from "../../../constants/PageConstants";
+import Header from "@components/layouts/header/Header";
+import Footer from "@components/layouts/footer/Footer";
+import { SearchCondition } from "@apis/dto/SearchCondition";
+import Accordion from "@components/uiParts/accordion/Accordion";
+import { useSearch } from "@hooks/usecases/search/useSearch";
+import SearchResultTable from "@components/usecases/search/table/SearchResultTable";
+import SearchForm, { SearchFormInputs } from "@components/usecases/search/form/SearchForm";
+import { Page } from "@constants/PageConstants";
 import { useDispatch } from "react-redux";
-import { setCondition } from "../../../states/reducers/status/SearchReducer";
-import { ModalDialogProvider } from "../../../providers/ModalDialogProvider";
+import { setCondition } from "@states/reducers/status/SearchReducer";
+import { ModalDialogProvider } from "@providers/ModalDialogProvider";
 
 const Search: React.FC = () => {
   const dispatch = useDispatch();

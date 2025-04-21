@@ -1,8 +1,8 @@
-import { Page } from "../../../constants/PageConstants";
-import { menuUnorderedList } from "../../../styles/MenuTv";
-import Footer from "../../layouts/footer/Footer";
-import Header from "../../layouts/header/Header";
-import MenuItem from "../../usecases/menu/listItem/MenuItem";
+import { Page } from "@constants/PageConstants";
+import { menuUnorderedList } from "@styles/MenuTv";
+import Footer from "@components/layouts/footer/Footer";
+import Header from "@components/layouts/header/Header";
+import MenuItem from "@components/usecases/menu/listItem/MenuItem";
 
 const Menu: React.FC = () => {
   return (

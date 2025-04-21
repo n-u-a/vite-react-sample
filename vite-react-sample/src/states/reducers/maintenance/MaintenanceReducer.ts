@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../../store";
+import { RootState } from "@states/store";
 
 // 型定義
 export type QuantitiesState = Map<string, number>;

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import { modal } from "../../../styles/ModalTv";
-import ModalButton from "../button/ModalButton";
+import { modal } from "@styles/ModalTv";
+import ModalButton from "@components/uiParts/button/ModalButton";
 
 interface SingleActionModalProps {
   onClick: () => void;

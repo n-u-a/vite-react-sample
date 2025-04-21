@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { DialogContext } from "../providers/ModalDialogProvider";
+import { DialogContext } from "@providers/ModalDialogProvider";
 
 /**
  * ModalDialogProviderの範囲内でのみ利用可能なhookです。

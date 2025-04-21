@@ -1,6 +1,6 @@
 import { Middleware } from "@reduxjs/toolkit";
-import { RootState } from "../store";
-import { setQuantity } from "../reducers/maintenance/MaintenanceReducer";
+import { RootState } from "@states/store";
+import { setQuantity } from "@states/reducers/maintenance/MaintenanceReducer";
 
 // Middleware 型のジェネリックパラメータを指定
 const MapMiddleware: Middleware<{}, RootState> = () => (next) => (action) => {

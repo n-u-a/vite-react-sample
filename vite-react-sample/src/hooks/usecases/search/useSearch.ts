@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import useSWR from "swr";
-import { SearchCondition } from "../../../apis/dto/SearchCondition";
-import { searchApi } from "../../../apis/SearchApiClient";
-import { selectCondition } from "../../../states/reducers/status/SearchReducer";
-import { useErrorNavigation } from "../../useErrorNavigation";
-import { SearchResult } from "../../../apis/dto/SearchResult";
+import { SearchCondition } from "@apis/dto/SearchCondition";
+import { searchApi } from "@apis/SearchApiClient";
+import { selectCondition } from "@states/reducers/status/SearchReducer";
+import { useErrorNavigation } from "@hooks/useErrorNavigation";
+import { SearchResult } from "@apis/dto/SearchResult";
 
 const fetcher = async (param: SearchCondition): Promise<SearchResult[]> => {
   const response = await searchApi(param);

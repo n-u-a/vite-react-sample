@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { humberger, humbergerLineTop, humbergerLineMiddle, humbergerLineBottom } from "../../../styles/HeaderTv";
+import { humberger, humbergerLineTop, humbergerLineMiddle, humbergerLineBottom } from "@styles/HeaderTv";
 
 interface HumbergerProps {
   isOpen?: boolean; // 外部で制御される開閉状態

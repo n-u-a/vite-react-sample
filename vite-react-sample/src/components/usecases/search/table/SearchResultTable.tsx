@@ -1,11 +1,11 @@
-import { SearchResult } from "../../../../apis/dto/SearchResult";
-import GenericTable, { ColumnDefinition } from "../../../uiParts/table/GenericTable";
-import NoResultMessage from "../../../uiParts/message/NoResultMessage";
+import { SearchResult } from "@apis/dto/SearchResult";
+import GenericTable, { ColumnDefinition } from "@components/uiParts/table/GenericTable";
+import NoResultMessage from "@components/uiParts/message/NoResultMessage";
 import { Link } from "react-router-dom";
-import { Page } from "../../../../constants/PageConstants";
-import { tableButton } from "../../../../styles/ButtonTv";
-import { isEmpty } from "../../../../utils/utils";
-import { useDialog } from "../../../../hooks/useDialog";
+import { Page } from "@constants/PageConstants";
+import { tableButton } from "@styles/ButtonTv";
+import { isEmpty } from "@utils/utils";
+import { useDialog } from "@hooks/useDialog";
 
 export interface SearchResultTableProps {
   searchResults: Array<SearchResult> | undefined;

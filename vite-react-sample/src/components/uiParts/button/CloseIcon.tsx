@@ -1,4 +1,4 @@
-import { modalButton } from "../../../styles/ButtonTv";
+import { modalButton } from "@styles/ButtonTv";
 
 interface CloseIconProps {
   isWaiting?: boolean;

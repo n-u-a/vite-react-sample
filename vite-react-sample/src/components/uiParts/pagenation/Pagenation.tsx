@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { pagenationNumber, pagenation, pagenationCount } from "../../../styles/TableTv";
+import { pagenationNumber, pagenation, pagenationCount } from "@styles/TableTv";
 
 export interface PagenationProps {
   setStartItemPosition: (startPosition: number) => void;

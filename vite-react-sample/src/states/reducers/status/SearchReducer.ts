@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../../store";
-import { SearchCondition } from "../../../apis/dto/SearchCondition";
+import { RootState } from "@states/store";
+import { SearchCondition } from "@apis/dto/SearchCondition";
 
 type SearchState = {
   condition: SearchCondition | null;

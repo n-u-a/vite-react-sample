@@ -1,6 +1,6 @@
 import React, { createContext, useState, ReactNode } from "react";
-import ConfirmationModal from "../components/uiParts/modal/ConfirmationModal";
-import SingleActionModal from "../components/uiParts/modal/SingleActionModal";
+import ConfirmationModal from "@components/uiParts/modal/ConfirmationModal";
+import SingleActionModal from "@components/uiParts/modal/SingleActionModal";
 
 type DialogType = "confirmation" | "singleAction" | null;
 

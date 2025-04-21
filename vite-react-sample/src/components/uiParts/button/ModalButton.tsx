@@ -1,4 +1,4 @@
-import { modalButton } from "../../../styles/ButtonTv";
+import { modalButton } from "@styles/ButtonTv";
 
 interface ButtonProps {
   color?: "confirm" | "cancel" | "close" | undefined;

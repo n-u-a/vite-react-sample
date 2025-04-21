@@ -5,9 +5,9 @@ import {
   accordionTitle,
   accordionToggleButton,
   accordionToggleButtonIcon,
-} from "../../../styles/AccordionTv";
-import { accordionButtonIcon, xmlNameSpace } from "../../../constants/SvgConstants";
-import { header1 } from "../../../styles/CommonTv";
+} from "@styles/AccordionTv";
+import { accordionButtonIcon, xmlNameSpace } from "@constants/SvgConstants";
+import { header1 } from "@styles/CommonTv";
 
 interface SearchConditionAccordionProps {
   isOpen?: boolean; // 外部で制御される開閉状態

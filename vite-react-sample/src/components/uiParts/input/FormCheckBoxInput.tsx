@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
-import { formErrorMessage } from "../../../styles/FormTv";
-import { inputCheckBox, inputCheckBoxLabel } from "../../../styles/InputTv";
+import { formErrorMessage } from "@styles/FormTv";
+import { inputCheckBox, inputCheckBoxLabel } from "@styles/InputTv";
 
 interface FormCheckBoxInputProps {
   label: string;

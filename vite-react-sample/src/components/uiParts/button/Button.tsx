@@ -1,4 +1,4 @@
-import { button } from "../../../styles/ButtonTv";
+import { button } from "@styles/ButtonTv";
 
 interface ButtonProps {
   color?: "primary" | "secondary" | undefined;

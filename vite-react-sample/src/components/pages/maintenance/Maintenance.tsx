@@ -1,4 +1,4 @@
-import Header from "../../layouts/header/Header";
+import Header from "@components/layouts/header/Header";
 
 /**
  * メンテナンス画面コンポーネント

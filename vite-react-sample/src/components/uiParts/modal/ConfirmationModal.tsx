@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
-import { modal } from "../../../styles/ModalTv";
-import CloseIcon from "../button/CloseIcon";
-import ModalButton from "../button/ModalButton";
+import { modal } from "@styles/ModalTv";
+import CloseIcon from "@components/uiParts/button/CloseIcon";
+import ModalButton from "@components/uiParts/button/ModalButton";
 
 export interface ConfirmationModalProps {
   onConfirm: () => void;

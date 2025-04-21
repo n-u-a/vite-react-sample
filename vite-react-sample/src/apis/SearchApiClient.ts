@@ -1,8 +1,8 @@
 import axios, { AxiosResponse } from "axios";
-import { getErrorInfo } from "../utils/utils";
-import { ResponseDto } from "./dto/ResponseDto";
-import { SearchCondition } from "./dto/SearchCondition";
-import { SearchResult } from "./dto/SearchResult";
+import { getErrorInfo } from "@utils/utils";
+import { ResponseDto } from "@apis/dto/ResponseDto";
+import { SearchCondition } from "@apis/dto/SearchCondition";
+import { SearchResult } from "@apis/dto/SearchResult";
 
 export const searchApi = async (condition: SearchCondition): Promise<ResponseDto<Array<SearchResult>>> => {
   try {

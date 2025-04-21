@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom";
-import { container, errorTitleContainer, infoLogoSvg, errorTitle, errorMessage } from "../../../styles/ErrorTv";
-import { isNotNullish } from "../../../utils/utils";
-import Header from "../../layouts/header/Header";
-import { xmlNameSpace, infoLogo } from "../../../constants/SvgConstants";
+import { container, errorTitleContainer, infoLogoSvg, errorTitle, errorMessage } from "@styles/ErrorTv";
+import { isNotNullish } from "@utils/utils";
+import Header from "@components/layouts/header/Header";
+import { xmlNameSpace, infoLogo } from "@constants/SvgConstants";
 
 /**
  * 本画面に遷移する際は、stateにtitle, message, typeを必ず設定してください。

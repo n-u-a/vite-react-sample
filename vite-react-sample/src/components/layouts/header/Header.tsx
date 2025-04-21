@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { sideBar } from "../../../styles/HeaderTv";
-import MenuItem from "../../usecases/menu/listItem/MenuItem";
-import Humberger from "../../uiParts/button/Humberger";
-import { Page } from "../../../constants/PageConstants";
-import { menuUnorderedList } from "../../../styles/MenuTv";
+import { sideBar } from "@styles/HeaderTv";
+import MenuItem from "@components/usecases/menu/listItem/MenuItem";
+import Humberger from "@components/uiParts/button/Humberger";
+import { Page } from "@constants/PageConstants";
+import { menuUnorderedList } from "@styles/MenuTv";
 
 interface HeaderProps {
   pageTitle: string;

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { slice } from "lodash";
-import Pagenation from "../pagenation/Pagenation";
-import { header1 } from "../../../styles/CommonTv";
-import { table, tableData, tableHeader, tableHeaderRow, tableRow } from "../../../styles/TableTv";
+import Pagenation from "@components/uiParts/pagenation/Pagenation";
+import { header1 } from "@styles/CommonTv";
+import { table, tableData, tableHeader, tableHeaderRow, tableRow } from "@styles/TableTv";
 
 /**
  * カラム定義

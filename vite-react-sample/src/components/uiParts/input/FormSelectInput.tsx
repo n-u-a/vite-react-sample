@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
-import { formErrorMessage } from "../../../styles/FormTv";
-import { inputLabel, inputText } from "../../../styles/InputTv";
+import { formErrorMessage } from "@styles/FormTv";
+import { inputLabel, inputText } from "@styles/InputTv";
 
 export interface FormSelectInputOption {
   id: string;

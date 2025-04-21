@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Page } from "../constants/PageConstants";
+import { Page } from "@constants/PageConstants";
 
 interface ErrorPageProps {
   title: string;

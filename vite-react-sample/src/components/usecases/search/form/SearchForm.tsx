@@ -1,13 +1,13 @@
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { form, formErrorMessage, formCriteriaInputArea } from "../../../../styles/FormTv";
-import Button from "../../../uiParts/button/Button";
-import FormCheckBoxInput from "../../../uiParts/input/FormCheckBoxInput";
-import FormSelectInput from "../../../uiParts/input/FormSelectInput";
-import FormTextInput from "../../../uiParts/input/FormTextInput";
+import { form, formErrorMessage, formCriteriaInputArea } from "@styles/FormTv";
+import Button from "@components/uiParts/button/Button";
+import FormCheckBoxInput from "@components/uiParts/input/FormCheckBoxInput";
+import FormSelectInput from "@components/uiParts/input/FormSelectInput";
+import FormTextInput from "@components/uiParts/input/FormTextInput";
 import { z } from "zod";
-import { SearchCondition } from "../../../../apis/dto/SearchCondition";
-import { Label, PlaceHolder } from "../../../../constants/FormConstants";
+import { SearchCondition } from "@apis/dto/SearchCondition";
+import { Label, PlaceHolder } from "@constants/FormConstants";
 
 // フォーム定義
 export const searchSchema = z
