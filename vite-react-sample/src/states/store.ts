@@ -19,10 +19,13 @@ export type RootState = ReturnType<typeof rootReducer>;
 // storeの初期化
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }).concat(MapMiddleware),
+  middleware: (getDefaultM) =>
+    getDefaultM({
+      serializableCheck: {
+        ignoredActionPaths: ["meta.arg", "payload.timestamp"], // 例
+        ignoredPaths: ["counter.entities"], // 例
+      },
+    }),
 });
 
 export type AppDispatch = typeof store.dispatch;
