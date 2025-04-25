@@ -29,8 +29,9 @@
       "@apis/*": ["src/apis/*"],
       "@states/*": ["src/states/*"],
       "@providers/*": ["src/providers/*"]
-    }
+    },
+    "types": ["vite/client", "vitest/globals"]
   },
-  "include": ["src", "tailwind.config.js"],
+  "include": ["src", "tailwind.config.js", "tests", ".storybook"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

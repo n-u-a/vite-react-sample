@@ -24,3 +24,5 @@ output.css
 *.njsproj
 *.sln
 *.sw?
+
+*storybook.log
