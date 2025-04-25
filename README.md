@@ -16,5 +16,5 @@
 ## 開発の基本的な流れ
 [開発の基本的な流れ]: #開発の基本的な流れ
 
-[vite-react-sample/guide](./vite-react-sample/guide)内のファイルに記載しています。  
+[vite-react-sample/guide](./guide)内のファイルに記載しています。  
 上記フォルダ内のファイルを参考に開発を進めてください。
