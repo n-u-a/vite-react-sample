@@ -1,0 +1,62 @@
+import { Meta, Story, Canvas } from "@storybook/blocks";
+import * as SearchStories from "../Search.stories";
+
+<Meta of={SearchStories} title="Pages/Search States/WithResult" />
+
+# Searchコンポーネント
+
+`Search` は商品検索画面コンポーネントです。  
+検索条件を入力して検索をすることで、条件に一致する商品情報を表示します。
+
+<Canvas of={SearchStories.WithResults}/>
+
+## 項目一覧
+
+| 項目 ID |     項目名     |                                     オブジェクト                                     |
+| ------- | -------------- | ------------------------------------------------------------------------------------ |
+| F001    | 検索条件入力欄 | <Story of={SearchStories.AccordionOnly} />                                           |
+| F002    | 検索ボタン     | <Story of={SearchStories.SearchButtonOnly} />                                        |
+| F003    | 商品コード     | <Story of={SearchStories.ProductCodeOnly} />                                        |
+| F004    | 削除ボタン     | <Story of={SearchStories.DeleteButtonOnly} />                                        |
+| F005    | 削除ダイアログ | <Canvas of={SearchStories.SearchConfirmationModalOnly} className="block w-[760px]"/> |
+
+## ■項目詳細
+
+### ・F001【検索条件入力欄】
+---
+
+下記検索条件を入力可能。  
+- 商品コード
+- 商品名
+- 商品区分
+- 不足製品フラグ
+
+**バリデーション**  
+F002(検索ボタン)押下時に検索条件が1つ以上入力されていない場合、「※ 検索条件は1項目以上入力してください。」というエラーメッセージを表示する。
+
+## ■アクション詳細
+
+### ・F002【検索ボタン】クリック
+---
+
+1.F002(検索ボタン)押下時、F001(検索条件入力欄)のバリデーションを実施する。<br/>
+2.バリデーション結果に応じた処理を行う。<br/>
+　2-1.バリデーションエラーが発生した場合、エラーメッセージを表示して処理を終了する。<br/>
+　2-2.バリデーションエラーが発生しない場合、「3.」の処理を実施する。<br/>
+3.API-01(商品検索)を実行し、取得結果を画面に表示する。
+
+**API-01 parameters**
+|        property        |                設定値                |
+| ---------------------- | ------------------------------------ |
+| product_code           | F001(検索条件入力欄)の商品コード     |
+| product_name           | F001(検索条件入力欄)の商品名         |
+| product_classification | F001(検索条件入力欄)の商品区分       |
+| is_short_stock_only    | F001(検索条件入力欄)の不足製品フラグ |
+
+
+# 状態別画面表示
+---
+
+- [検索前](?path=/docs/pages-search--searchdefault)
+- [ローディング中](?path=/docs/pages-search--searchloading)
+- [バリデーションエラー](?path=/docs/pages-search--searchvalidationerror)

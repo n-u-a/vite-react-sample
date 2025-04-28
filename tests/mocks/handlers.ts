@@ -1,21 +1,33 @@
 // tests/mocks/handlers.ts
-import { rest } from "msw";
+import { http, HttpResponse } from "msw";
 
 /**
  * 開発・テスト・Storybook 共通で使うモック API 一覧
  */
 export const handlers = [
   /* 商品リスト取得例 */
-  rest.get("/api/products", (_req, res, ctx) =>
-    res(
-      ctx.status(200),
-      ctx.json([
-        { code: "001", name: "Coffee" },
-        { code: "002", name: "Tea" },
-      ])
-    )
-  ),
+  http.post("/api/search", () => {
+    return HttpResponse.json(sample, { status: 200 });
+  }),
+];
 
-  /* 商品詳細 – 失敗パターン例 */
-  rest.get("/api/products/:code", (_req, res, ctx) => res(ctx.status(500), ctx.json({ message: "Internal Server Error" }))),
+const sample = [
+  {
+    product_code: "A001",
+    product_name: "品番1",
+    count: 100,
+    product_classification: 0,
+  },
+  {
+    product_code: "A002",
+    product_name: "品番2",
+    count: 50,
+    product_classification: 0,
+  },
+  {
+    product_code: "A003",
+    product_name: "品番3",
+    count: 75,
+    product_classification: 1,
+  },
 ];

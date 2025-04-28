@@ -16,7 +16,7 @@ export const button = tv({
     isInactivate: {
       true: "bg-gray-400 text-white hover:bg-gray-400 focus:ring-gray-400 cursor-default focus:ring-0",
     },
-    isWaiting: {
+    isLoading: {
       true: "bg-gray-400 text-white hover:bg-gray-400 focus:ring-gray-400 cursor-wait focus:ring-0",
     },
   },
@@ -48,11 +48,11 @@ export const modalButton = tv({
   variants: {
     color: {
       confirm:
-        "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center",
+        "text-white m-1.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center",
       cancel:
-        "py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100",
+        "py-2.5 px-5 m-1.5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100",
       close:
-        "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center",
+        "text-gray-700 hover:text-gray-900 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center",
     },
     size: {
       small: "w-20",

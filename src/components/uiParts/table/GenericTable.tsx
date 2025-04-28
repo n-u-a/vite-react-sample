@@ -71,7 +71,7 @@ const GenericTable = <T,>({ title, data, columns, displayCount = 10 }: GenericTa
           <div className="overflow-hidden rounded border border-gray-100 shadow-md">
             <table className={table()}>
               <thead className={tableHeader()}>
-                <tr>
+                <tr role="row">
                   {columns.map((col, index) => (
                     <th key={index} className={tableHeaderRow({ format: col.format })}>
                       {col.header}
@@ -82,6 +82,7 @@ const GenericTable = <T,>({ title, data, columns, displayCount = 10 }: GenericTa
               <tbody>
                 {slice(data, startItemPosition, startItemPosition + displayCount).map((item, rowIndex) => (
                   <tr
+                    role="row"
                     key={rowIndex}
                     className={tableRow({
                       isLastItem: slice(data, startItemPosition, startItemPosition + displayCount).length == rowIndex + 1,

@@ -1,22 +1,35 @@
 import { button } from "@styles/ButtonTv";
 
-interface ButtonProps {
-  color?: "primary" | "secondary" | undefined;
-  size?: "small" | "medium" | "large" | "auto" | undefined;
-  isWaiting?: boolean;
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  color?: "primary" | "secondary";
+  size?: "small" | "medium" | "large" | "auto";
+  isLoading?: boolean;
   name: string;
   type?: "button" | "submit";
 }
 
-const Button: React.FC<ButtonProps> = ({ color = "primary", size = "auto", isWaiting = false, name, type = "button" }) => {
+const disabledClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  e.preventDefault();
+};
+
+const Button: React.FC<ButtonProps> = ({
+  color = "primary",
+  size = "auto",
+  isLoading = false,
+  name,
+  type = "button",
+  onClick,
+}) => {
   return (
     <button
       type={type}
       className={button({
         color: color,
         size: size,
-        isWaiting: isWaiting,
+        isLoading: isLoading,
       })}
+      aria-disabled={isLoading}
+      onClick={isLoading ? disabledClick : onClick}
     >
       {name}
     </button>

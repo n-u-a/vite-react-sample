@@ -1,0 +1,3 @@
+import{j as t}from"./jsx-runtime-Cw0GR0a5.js";import{useMDXComponents as n}from"./index-DSkyVWTJ.js";import{M as s,C as m}from"./index-DFqhG5s4.js";import{S as i,D as a}from"./Search.stories-ZJ7FUMQ_.js";import"./index-CTjT7uj6.js";import"./iframe-D9KJo7fW.js";import"./index-DwHHXP4W.js";import"./index-bQJQ23L7.js";import"./index-DrFu-skq.js";import"./Button-CIaTfJ1Q.js";import"./index-DCUQYpzu.js";import"./index-nXYC881m.js";function e(o){const r={h1:"h1",...n(),...o.components};return t.jsxs(t.Fragment,{children:[t.jsx(s,{of:i,title:"Pages/Search States/Default"}),`
+`,t.jsx(r.h1,{id:"検索前",children:"検索前"}),`
+`,t.jsx(m,{of:a})]})}function S(o={}){const{wrapper:r}={...n(),...o.components};return r?t.jsx(r,{...o,children:t.jsx(e,{...o})}):e(o)}export{S as default};

@@ -7,7 +7,7 @@ import searchReducer from "./reducers/status/SearchReducer";
 enableMapSet();
 
 // 各リデューサーを初期化
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   maintenance: maintenanceReducer,
   search: searchReducer,
 });

@@ -38,7 +38,7 @@ export const useSearch = () => {
   return {
     condition,
     searchResults,
-    isWaiting: isLoading, // SWRのisLoadingを使用
+    isLoading, // SWRのisLoadingを使用
     error,
     search: mutate,
   };

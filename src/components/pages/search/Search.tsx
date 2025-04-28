@@ -12,7 +12,7 @@ import { ModalDialogProvider } from "@providers/ModalDialogProvider";
 
 const Search: React.FC = () => {
   const dispatch = useDispatch();
-  const { condition, searchResults, isWaiting, search } = useSearch();
+  const { condition, searchResults, isLoading, search } = useSearch();
 
   /**
    * 検索Formのsubmit時の処理。
@@ -34,7 +34,7 @@ const Search: React.FC = () => {
       <ModalDialogProvider>
         <Header pageTitle={Page.SEARCH.title} />
         <Accordion title="検索条件">
-          <SearchForm onSubmit={onSubmit} isWaiting={isWaiting} condition={condition} />
+          <SearchForm onSubmit={onSubmit} isLoading={isLoading} condition={condition} />
         </Accordion>
         <SearchResultTable searchResults={searchResults} />
         <Footer />

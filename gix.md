@@ -23,7 +23,17 @@ pnpm add -D msw@1.3.1
 pnpm add -D msw-storybook-addon@^1
 pnpm add -D @storybook/test 
 pnpm add -D @storybook/test-runner@^0.22.0
-pnpm add -D  @storybook/react-vite@^8  @storybook/addon-essentials  @storybook/addon-a11y  @storybook/addon-interactions  @storybook/experimental-addon-test  @storybook/test
+pnpm add -D @storybook/react-vite@^8  @storybook/addon-essentials  @storybook/addon-interactions  @storybook/experimental-addon-test  @storybook/test
+pnpm add -D remark-gfm
+pnpm add -D @storybook/addon-mdx-gfm
+pnpm add -D @storybook/test
+npx msw init ./public --save 
+
+npx http-server ./storybook-static -p 8080
+
+反映するのが望ましい
+storybook/addon-console
+storybook/addon-links
 
 
 jobs:

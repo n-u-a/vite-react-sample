@@ -49,11 +49,16 @@
     "@chromatic-com/storybook": "^3.2.6",
     "@eslint/js": "^9.13.0",
     "@storybook/addon-a11y": "^8.6.12",
+    "@storybook/addon-docs": "^8.6.12",
     "@storybook/addon-essentials": "8.6.12",
+    "@storybook/addon-mdx-gfm": "^8.6.12",
     "@storybook/addon-onboarding": "8.6.12",
     "@storybook/blocks": "8.6.12",
     "@storybook/cli": "^8.6.12",
+    "@storybook/components": "^8.6.12",
     "@storybook/experimental-addon-test": "8.6.12",
+    "@storybook/icons": "^1.4.0",
+    "@storybook/manager-api": "^8.6.12",
     "@storybook/react": "8.6.12",
     "@storybook/react-vite": "^8",
     "@storybook/test": "8.6.12",
@@ -71,11 +76,13 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "eslint-plugin-storybook": "^0.12.0",
+    "fuse.js": "^7.1.0",
     "globals": "^15.11.0",
     "jsdom": "^26.1.0",
-    "msw": "^1.3.1",
-    "msw-storybook-addon": "^1.10.0",
+    "msw": "^2.7.5",
+    "msw-storybook-addon": "^2.0.4",
     "playwright": "^1.52.0",
+    "remark-gfm": "^4.0.1",
     "start-server-and-test": "^2.0.11",
     "storybook": "^8.6.12",
     "typescript": "~5.6.2",
@@ -88,5 +95,9 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
+  },
+  "packageManager": "pnpm@10.9.0+sha512.0486e394640d3c1fb3c9d43d49cf92879ff74f8516959c235308f5a8f62e2e19528a65cdc2a3058f587cde71eba3d5b56327c8c33a97e4c4051ca48a10ca2d5f",
+  "msw": {
+    "workerDirectory": "public"
   }
 }

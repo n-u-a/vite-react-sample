@@ -33,11 +33,11 @@ export type SearchFormInputs = z.infer<typeof searchSchema>;
 
 interface SearchFormProps {
   onSubmit: (data: SearchFormInputs) => void;
-  isWaiting: boolean;
+  isLoading: boolean;
   condition: SearchCondition | null;
 }
 
-const SearchForm: React.FC<SearchFormProps> = ({ onSubmit, isWaiting, condition }) => {
+const SearchForm: React.FC<SearchFormProps> = ({ onSubmit, isLoading, condition }) => {
   // Formで使用するオブジェクトの取得
   const {
     control,
@@ -106,7 +106,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSubmit, isWaiting, condition 
           )}
         />
       </div>
-      <Button isWaiting={isWaiting} name="検索" type="submit" />
+      <Button isLoading={isLoading} name="検索" type="submit" />
     </form>
   );
 };
