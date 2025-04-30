@@ -1,7 +1,5 @@
 import { Meta, Story, Canvas } from "@storybook/blocks";
-import * as SearchStories from "../Search.stories";
-
-<Meta of={SearchStories} title="Pages/Search States/WithResult" />
+import * as SearchStories from "../../components/pages/search/Search.stories";
 
 # Searchコンポーネント
 
@@ -14,11 +12,13 @@ import * as SearchStories from "../Search.stories";
 
 | 項目 ID |     項目名     |                                     オブジェクト                                     |
 | ------- | -------------- | ------------------------------------------------------------------------------------ |
-| F001    | 検索条件入力欄 | <Story of={SearchStories.AccordionOnly} />                                           |
+| F001    | 検索条件入力欄 | <Story of={SearchStories.AccordionOnly} className="block w-[860px]"/>                |
 | F002    | 検索ボタン     | <Story of={SearchStories.SearchButtonOnly} />                                        |
-| F003    | 商品コード     | <Story of={SearchStories.ProductCodeOnly} />                                        |
-| F004    | 削除ボタン     | <Story of={SearchStories.DeleteButtonOnly} />                                        |
-| F005    | 削除ダイアログ | <Canvas of={SearchStories.SearchConfirmationModalOnly} className="block w-[760px]"/> |
+| F003    | 検索結果表示欄 | <Canvas of={SearchStories.SearchResultTableOnly} className="block w-[860px]"/>       |
+| F004    | 商品コード     | <Story of={SearchStories.ProductCodeOnly} />                                         |
+| F005    | 削除ボタン     | <Story of={SearchStories.DeleteButtonOnly} />                                        |
+| F006    | 削除ダイアログ | <Canvas of={SearchStories.SearchConfirmationModalOnly} className="block w-[860px]"/> |
+| F007    | はいボタン     | <Story of={SearchStories.PositiveButtonOnly} />                                        |
 
 ## ■項目詳細
 
@@ -53,6 +53,23 @@ F002(検索ボタン)押下時に検索条件が1つ以上入力されていな�
 | product_classification | F001(検索条件入力欄)の商品区分       |
 | is_short_stock_only    | F001(検索条件入力欄)の不足製品フラグ |
 
+**API-01 response**
+|   property   |             設定項目             |
+| ------------ | -------------------------------- |
+| product_code | F003(検索結果表示欄)の商品コード |
+| product_name | F003(検索結果表示欄)の商品名     |
+| quantity     | F003(検索結果表示欄)の数量       |
+
+### ・F004【商品コード】クリック
+
+[商品情報詳細画面](?path=/docs/docs-search-searchdetail--docs)に遷移する。  
+遷移時には以下のパラメータを設定する。
+
+
+|      属性      |  property   |                  設定項目                  |
+| -------------- | ----------- | ------------------------------------------ |
+| パスパラメータ | productName | クリックされたF004(商品コード)の値         |
+| location state | productName | クリックされたF004(商品コード)の行の商品名 |
 
 # 状態別画面表示
 ---

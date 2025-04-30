@@ -24,7 +24,7 @@ const SearchResultTable: React.FC<SearchResultTableProps> = ({ searchResults }) 
       isLink: true,
     },
     {
-      header: "品番",
+      header: "商品名",
       accessor: (item: SearchResult) => item.product_name,
     },
     {

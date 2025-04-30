@@ -1,0 +1,23 @@
+
+# 画面一覧
+[商品検索画面](?path=/docs/docs-search-searchwithresults--docs)
+[商品情報詳細画面](?path=/docs/docs-search-searchdetail--docs)
+
+## 状態別表示
+- [ローディング中](?path=/docs/docs-search-searchloading--docs)
+- [検索前](?path=/docs/docs-search-searchdefault--docs)
+- [バリデーションエラー](?path=/docs/docs-search-searchvalidationerror--docs)
+- [削除ダイアログ表示](?path=/docs/docs-search-searchwithresults--docs)
+
+
+```mermaid
+%%{init:{flowchart:{htmlLabels:true}}}%%
+flowchart LR
+  Menu["<a href='/docs/docs-menu-menudefault--docs' target='_parent'>メニュー画面</a>"]
+  Search["<a href='/docs/docs-search-searchwithresults--docs' target='_parent'>商品情報検索画面</a>"]
+  Detail["<a href='/docs/pages-detail--default' target='_parent'>商品情報詳細画面</a>"]
+
+  Menu -- 検索へ --> Search
+  Search -- 詳細へ --> Detail
+  Detail -- 戻る --> Search
+```

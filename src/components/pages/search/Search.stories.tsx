@@ -7,20 +7,19 @@ import ConfirmationModal from "@components/uiParts/modal/ConfirmationModal";
 import SearchForm from "@components/usecases/search/form/SearchForm";
 import { Link } from "react-router-dom";
 import Button from "@components/uiParts/button/Button";
+import SearchResultTable from "@components/usecases/search/table/SearchResultTable";
+import { ModalDialogProvider } from "@providers/ModalDialogProvider";
 
 /**
  * 商品検索画面コンポーネントのStory.
+ * mdxで表示するため、各StoryにinlineStories: falseを設定する。
  */
 type Story = StoryObj<typeof Search>;
 
 export default {
+  tags: ["!docs"],
   title: "Pages/Search",
   component: Search,
-  parameters: {},
-} satisfies Meta<typeof Search>;
-
-export const Default: Story = {
-  name: "Default",
   parameters: {
     layout: "fullscreen",
     docs: {
@@ -32,6 +31,10 @@ export const Default: Story = {
       },
     },
   },
+} satisfies Meta<typeof Search>;
+
+export const Default: Story = {
+  name: "Default",
 };
 
 /**
@@ -40,15 +43,6 @@ export const Default: Story = {
 export const Loading: StoryObj<typeof Search> = {
   name: "Loading",
   parameters: {
-    layout: "fullscreen",
-    docs: {
-      inlineStories: false,
-      story: {
-        autoplay: true,
-        height: 600,
-        inline: false,
-      },
-    },
     msw: {
       handlers: [
         http.post("/api/search", async () => {
@@ -76,13 +70,9 @@ export const Loading: StoryObj<typeof Search> = {
 export const WithResults: Story = {
   name: "With Results",
   parameters: {
-    layout: "fullscreen",
     docs: {
-      inlineStories: false,
       story: {
-        autoplay: true,
         height: 860,
-        inline: false,
       },
     },
   },
@@ -92,8 +82,7 @@ export const WithResults: Story = {
     // 検索条件を入力
     await userEvent.click(canvas.getByLabelText(/不足製品のみ/));
     // 検索ボタンをクリック
-    const btn = canvas.getByRole("button", { name: "検索" });
-    await userEvent.click(btn);
+    await userEvent.click(canvas.getByRole("button", { name: "検索" }));
 
     // 結果行が描画されるまで待機して検証
     await waitFor(() => {
@@ -105,21 +94,36 @@ export const WithResults: Story = {
 };
 
 /**
+ * 削除ボタンを押下した状態の商品検索画面。
+ */
+export const Delete: Story = {
+  name: "Delete",
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // ① 検索条件を入力
+    await userEvent.click(canvas.getByLabelText(/不足製品のみ/));
+
+    // ② 検索ボタンをクリック
+    const searchBtn = canvas.getByRole("button", { name: "検索" });
+    await userEvent.click(searchBtn);
+
+    // ③ 結果行が描画されるまで待機
+    await canvas.findAllByRole("row");
+
+    // ④ 最初の「削除」ボタンを取得してクリック
+    const deleteButtons = await canvas.findAllByRole("button", { name: "削除" });
+    await userEvent.click(deleteButtons[0]);
+
+    // ⑤ ダイアログが開いたことを確認（タイトル or メッセージで判定）
+    await expect(canvas.getByText("削除します。")).toBeInTheDocument();
+  },
+};
+/**
  * 検索条件を入力せずに検索ボタンを押下した場合のバリデーションエラーメッセージ表示。
  */
 export const ValidationError: Story = {
   name: "ValidationError",
-  parameters: {
-    layout: "fullscreen",
-    docs: {
-      inlineStories: false,
-      story: {
-        autoplay: true,
-        height: 600,
-        inline: false,
-      },
-    },
-  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     // 検索条件を入力せずに検索ボタンをクリック
@@ -130,7 +134,7 @@ export const ValidationError: Story = {
 };
 
 /* ------------------------------------------------------------------ */
-/* UI パーツ単体 Story                                                */
+/* UI パーツ単体 Story(項目一覧表示用)                                  */
 /* ------------------------------------------------------------------ */
 
 /**
@@ -138,6 +142,13 @@ export const ValidationError: Story = {
  */
 export const AccordionOnly: Story = {
   name: "Accordion Only",
+  parameters: {
+    docs: {
+      story: {
+        height: 350,
+      },
+    },
+  },
   render: () => (
     <Accordion title="検索条件">
       <SearchForm
@@ -159,13 +170,28 @@ export const AccordionOnly: Story = {
  */
 export const SearchButtonOnly: Story = {
   name: "SearchButtonOnly",
+  parameters: {
+    docs: {
+      story: {
+        height: 90,
+      },
+    },
+  },
   render: () => <Button name="検索" />,
 };
+
 /**
  * 削除ボタン
  */
 export const DeleteButtonOnly: Story = {
   name: "DeleteButtonOnly",
+  parameters: {
+    docs: {
+      story: {
+        height: 90,
+      },
+    },
+  },
   render: () => <Button name="削除" color="secondary" />,
 };
 
@@ -174,6 +200,13 @@ export const DeleteButtonOnly: Story = {
  */
 export const ProductCodeOnly: Story = {
   name: "ProductCodeOnly",
+  parameters: {
+    docs: {
+      story: {
+        height: 60,
+      },
+    },
+  },
   render: () => (
     <Link
       to={""}
@@ -186,17 +219,63 @@ export const ProductCodeOnly: Story = {
 };
 
 /**
- * 削除ダイアログ
+ * 検索結果表示欄
  */
-export const SearchConfirmationModalOnly: Story = {
-  name: "SearchConfirmationModalOnly",
+export const SearchResultTableOnly: Story = {
+  name: "SearchResultTableOnly",
+  render: () => (
+    <SearchResultTable
+      searchResults={[
+        {
+          product_code: "A001",
+          product_name: "品番1",
+          count: 100,
+          product_classification: 0,
+        },
+        {
+          product_code: "A002",
+          product_name: "品番2",
+          count: 50,
+          product_classification: 0,
+        },
+        {
+          product_code: "A003",
+          product_name: "品番3",
+          count: 75,
+          product_classification: 1,
+        },
+      ]}
+    />
+  ),
   parameters: {
     layout: "fullscreen",
     docs: {
       inlineStories: false,
       story: {
-        height: 230,
+        autoplay: true,
+        height: 440,
         inline: false,
+      },
+    },
+  },
+  decorators: [
+    (Story) => (
+      <ModalDialogProvider>
+        <Story />
+      </ModalDialogProvider>
+    ),
+  ],
+};
+
+/**
+ * 削除ダイアログ
+ */
+export const SearchConfirmationModalOnly: Story = {
+  name: "SearchConfirmationModalOnly",
+  parameters: {
+    docs: {
+      story: {
+        height: 270,
       },
     },
   },
@@ -219,4 +298,19 @@ export const SearchConfirmationModalOnly: Story = {
       cancelButtonMessage="いいえ"
     />
   ),
+};
+
+/**
+ * 削除ダイアログ はいボタン
+ */
+export const PositiveButtonOnly: Story = {
+  name: "PositiveButtonOnly",
+  parameters: {
+    docs: {
+      story: {
+        height: 90,
+      },
+    },
+  },
+  render: () => <Button name="はい" />,
 };

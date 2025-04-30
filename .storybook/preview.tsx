@@ -3,11 +3,11 @@ import { handlers } from "../tests/mocks/handlers";
 import { Provider } from "react-redux";
 import { rootReducer } from "../src/states/store";
 import { configureStore } from "@reduxjs/toolkit";
-import "../src/index.css";
 import { MemoryRouter } from "react-router-dom";
-import type { Preview } from "@storybook/react";
 import { SWRConfig } from "swr";
 import type { Decorator, StoryFn, StoryContext } from "@storybook/react";
+import "../src/index.css";
+import "./manager.css";
 
 initialize({ onUnhandledRequest: "warn" });
 
@@ -21,11 +21,19 @@ const withRedux: Decorator = (Story: StoryFn, ctx: StoryContext) => {
 };
 
 /* ---------------- Router ------------------- */
-const withRouter: Decorator = (Story: StoryFn) => (
-  <MemoryRouter>
-    <Story />
-  </MemoryRouter>
-);
+const withRouter: Decorator = (Story: StoryFn, ctx: StoryContext) => {
+  // Detail ストーリー（title または kind が "Pages/Detail"）だけは
+  if (ctx.tags?.includes("skipRouter")) {
+    // Router をまったく巻かずにそのまま描画
+    return <Story />;
+  }
+  // それ以外はこれまで通り Router でラップ
+  return (
+    <MemoryRouter initialEntries={["/"]}>
+      <Story />
+    </MemoryRouter>
+  );
+};
 
 /* ---------------- #root ラッパー ------------ */
 const withAppRoot: Decorator = (Story: StoryFn) => (
@@ -45,13 +53,6 @@ const withSWR: Decorator = (Story: StoryFn, ctx: StoryContext) => (
     <Story />
   </SWRConfig>
 );
-
-const preview: Preview = {
-  decorators: [withRedux, withRouter, withAppRoot, withSWR],
-  parameters: { msw: { handlers } },
-};
-
-export default preview;
 
 export const parameters = { msw: { handlers } };
 export const decorators = [withRedux, withRouter, withAppRoot, withSWR];
