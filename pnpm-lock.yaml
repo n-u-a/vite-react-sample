@@ -133,14 +133,11 @@ importers:
         specifier: ^8
         version: 8.6.12(@storybook/test@8.6.12(storybook@8.6.12(prettier@3.5.3)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.27.3)(storybook@8.6.12(prettier@3.5.3))(typescript@5.6.3)(vite@5.4.11(@types/node@22.9.1))
       '@storybook/test':
-        specifier: 8.6.12
+        specifier: ^8.6.12
         version: 8.6.12(storybook@8.6.12(prettier@3.5.3))
       '@storybook/test-runner':
         specifier: ^0.22.0
         version: 0.22.0(@types/node@22.9.1)(babel-plugin-macros@3.1.0)(storybook@8.6.12(prettier@3.5.3))
-      '@testing-library/jest-dom':
-        specifier: ^6.6.3
-        version: 6.6.3
       '@testing-library/react':
         specifier: ^16.3.0
         version: 16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -183,6 +180,9 @@ importers:
       globals:
         specifier: ^15.11.0
         version: 15.12.0
+      happy-dom:
+        specifier: ^17.4.6
+        version: 17.4.6
       jsdom:
         specifier: ^26.1.0
         version: 26.1.0
@@ -227,7 +227,10 @@ importers:
         version: 3.6.1(@mdx-js/mdx@1.6.22)(vite@5.4.11(@types/node@22.9.1))
       vitest:
         specifier: ^3.1.2
-        version: 3.1.2(@types/debug@4.1.12)(@types/node@22.9.1)(@vitest/browser@3.1.2)(jsdom@26.1.0)(msw@2.7.5(@types/node@22.9.1)(typescript@5.6.3))
+        version: 3.1.2(@types/debug@4.1.12)(@types/node@22.9.1)(@vitest/browser@3.1.2)(happy-dom@17.4.6)(jsdom@26.1.0)(msw@2.7.5(@types/node@22.9.1)(typescript@5.6.3))
+      vitest-dom:
+        specifier: ^0.1.1
+        version: 0.1.1(vitest@3.1.2)
       wait-on:
         specifier: ^8.0.3
         version: 8.0.3(debug@4.4.0)
@@ -1904,10 +1907,6 @@ packages:
 
   '@testing-library/jest-dom@6.5.0':
     resolution: {integrity: sha512-xGGHpBXYSHUUr6XsKBfs85TWlYKpTc37cSBBVrXcib2MkHLboWlkClhWF37JKlDb9KEq3dHs+f2xR7XJEWGBxA==}
-    engines: {node: '>=14', npm: '>=6', yarn: '>=1'}
-
-  '@testing-library/jest-dom@6.6.3':
-    resolution: {integrity: sha512-IteBhl4XqYNkM54f4ejhLRJiZNqcSCoXUOG2CPK7qbD322KjQozM4kHQOfkG2oln9b9HTYqs+Sae8vBATubxxA==}
     engines: {node: '>=14', npm: '>=6', yarn: '>=1'}
 
   '@testing-library/react@16.3.0':
@@ -3640,6 +3639,10 @@ packages:
   hachure-fill@0.5.2:
     resolution: {integrity: sha512-3GKBOn+m2LX9iq+JC1064cSFprJY4jL1jCXTcpnfER5HYE2l/4EfWSGzkPa/ZDBmYI0ZOEj5VHV/eKnPGkHuOg==}
 
+  happy-dom@17.4.6:
+    resolution: {integrity: sha512-OEV1hDe9i2rFr66+WZNiwy1S8rAJy6bRXmXql68YJDjdfHBRbN76om+qVh68vQACf6y5Bcr90e/oK53RQxsDdg==}
+    engines: {node: '>=18.0.0'}
+
   has-flag@3.0.0:
     resolution: {integrity: sha512-sKJf1+ceQBr4SMkvQnBDNDtf4TXpVhVGateu0t918bl30FnbE2m4vNLX+VWe/dpjlb+HugGYzW7uQXH98HPEYw==}
     engines: {node: '>=4'}
@@ -3772,6 +3775,10 @@ packages:
   indent-string@4.0.0:
     resolution: {integrity: sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==}
     engines: {node: '>=8'}
+
+  indent-string@5.0.0:
+    resolution: {integrity: sha512-m6FAo/spmsW2Ab2fU35JTYwtOKa2yAwXSwgjSv1TJzh4Mh7mC3lzAOVLBprb72XsTrgkEIsl7YrFNAiDiRhIGg==}
+    engines: {node: '>=12'}
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
@@ -5040,6 +5047,10 @@ packages:
     resolution: {integrity: sha512-6tDA8g98We0zd0GvVeMT9arEOnTw9qM03L9cJXaCjrip1OO764RDBLBfrB4cwzNGDj5OA5ioymC9GkizgWJDUg==}
     engines: {node: '>=8'}
 
+  redent@4.0.0:
+    resolution: {integrity: sha512-tYkDkVVtYkSVhuQ4zBgfvciymHaeuel+zFKXShfDnFP5SyVEP7qo70Rf1jTOTCx3vGNAbnEi/xFkcfQVMIBWag==}
+    engines: {node: '>=12'}
+
   redux-thunk@3.1.0:
     resolution: {integrity: sha512-NW2r5T6ksUKXCabzhL9z+h206HQw/NJkcLm1GPImRQ8IzfXwRGqjVhKJGauHirT0DAuyy6hjdnMZaRoAcy0Klw==}
     peerDependencies:
@@ -5820,6 +5831,11 @@ packages:
       terser:
         optional: true
 
+  vitest-dom@0.1.1:
+    resolution: {integrity: sha512-n/bonR2hcRHCE5hlzG/P0yTXTUXx/gPtsaeUWP86ADfwo/+dHDpnTTV14qY7+kevsUbOZFYECu77MXY7AA0QSA==}
+    peerDependencies:
+      vitest: '>=0.31.0'
+
   vitest@3.1.2:
     resolution: {integrity: sha512-WaxpJe092ID1C0mr+LH9MmNrhfzi8I65EX/NRU/Ld016KqQNRgxSOlGNP1hHN+a/F8L15Mh8klwaF77zR3GeDQ==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
@@ -5909,6 +5925,10 @@ packages:
   whatwg-encoding@3.1.1:
     resolution: {integrity: sha512-6qN4hJdMwfYBtE3YBTTHhoeuUrDBPZmbQaxWAqSALV/MeEnR5z1xd8UKud2RAkFoPkmB+hli1TZSnyi84xz1vQ==}
     engines: {node: '>=18'}
+
+  whatwg-mimetype@3.0.0:
+    resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
+    engines: {node: '>=12'}
 
   whatwg-mimetype@4.0.0:
     resolution: {integrity: sha512-QaKxh0eNIi2mE9p2vEdzfagOKHCcj1pJ56EEHGQOVxp8r9/iszLUUV7v89x9O1p/T+NlTM5W7jW6+cz4Fq1YVg==}
@@ -7907,7 +7927,7 @@ snapshots:
     optionalDependencies:
       '@vitest/browser': 3.1.2(msw@2.7.5(@types/node@22.9.1)(typescript@5.6.3))(playwright@1.52.0)(vite@5.4.11(@types/node@22.9.1))(vitest@3.1.2)
       '@vitest/runner': 3.1.2
-      vitest: 3.1.2(@types/debug@4.1.12)(@types/node@22.9.1)(@vitest/browser@3.1.2)(jsdom@26.1.0)(msw@2.7.5(@types/node@22.9.1)(typescript@5.6.3))
+      vitest: 3.1.2(@types/debug@4.1.12)(@types/node@22.9.1)(@vitest/browser@3.1.2)(happy-dom@17.4.6)(jsdom@26.1.0)(msw@2.7.5(@types/node@22.9.1)(typescript@5.6.3))
     transitivePeerDependencies:
       - react
       - react-dom
@@ -8083,7 +8103,7 @@ snapshots:
 
   '@testing-library/dom@10.4.0':
     dependencies:
-      '@babel/code-frame': 7.26.2
+      '@babel/code-frame': 7.27.1
       '@babel/runtime': 7.26.0
       '@types/aria-query': 5.0.4
       aria-query: 5.3.0
@@ -8093,16 +8113,6 @@ snapshots:
       pretty-format: 27.5.1
 
   '@testing-library/jest-dom@6.5.0':
-    dependencies:
-      '@adobe/css-tools': 4.4.2
-      aria-query: 5.3.2
-      chalk: 3.0.0
-      css.escape: 1.5.1
-      dom-accessibility-api: 0.6.3
-      lodash: 4.17.21
-      redent: 3.0.0
-
-  '@testing-library/jest-dom@6.6.3':
     dependencies:
       '@adobe/css-tools': 4.4.2
       aria-query: 5.3.2
@@ -8503,7 +8513,7 @@ snapshots:
       magic-string: 0.30.17
       sirv: 3.0.1
       tinyrainbow: 2.0.0
-      vitest: 3.1.2(@types/debug@4.1.12)(@types/node@22.9.1)(@vitest/browser@3.1.2)(jsdom@26.1.0)(msw@2.7.5(@types/node@22.9.1)(typescript@5.6.3))
+      vitest: 3.1.2(@types/debug@4.1.12)(@types/node@22.9.1)(@vitest/browser@3.1.2)(happy-dom@17.4.6)(jsdom@26.1.0)(msw@2.7.5(@types/node@22.9.1)(typescript@5.6.3))
       ws: 8.18.1
     optionalDependencies:
       playwright: 1.52.0
@@ -8527,7 +8537,7 @@ snapshots:
       std-env: 3.9.0
       test-exclude: 7.0.1
       tinyrainbow: 2.0.0
-      vitest: 3.1.2(@types/debug@4.1.12)(@types/node@22.9.1)(@vitest/browser@3.1.2)(jsdom@26.1.0)(msw@2.7.5(@types/node@22.9.1)(typescript@5.6.3))
+      vitest: 3.1.2(@types/debug@4.1.12)(@types/node@22.9.1)(@vitest/browser@3.1.2)(happy-dom@17.4.6)(jsdom@26.1.0)(msw@2.7.5(@types/node@22.9.1)(typescript@5.6.3))
     optionalDependencies:
       '@vitest/browser': 3.1.2(msw@2.7.5(@types/node@22.9.1)(typescript@5.6.3))(playwright@1.52.0)(vite@5.4.11(@types/node@22.9.1))(vitest@3.1.2)
     transitivePeerDependencies:
@@ -9974,6 +9984,11 @@ snapshots:
 
   hachure-fill@0.5.2: {}
 
+  happy-dom@17.4.6:
+    dependencies:
+      webidl-conversions: 7.0.0
+      whatwg-mimetype: 3.0.0
+
   has-flag@3.0.0: {}
 
   has-flag@4.0.0: {}
@@ -10162,6 +10177,8 @@ snapshots:
   imurmurhash@0.1.4: {}
 
   indent-string@4.0.0: {}
+
+  indent-string@5.0.0: {}
 
   inflight@1.0.6:
     dependencies:
@@ -11869,6 +11886,11 @@ snapshots:
       indent-string: 4.0.0
       strip-indent: 3.0.0
 
+  redent@4.0.0:
+    dependencies:
+      indent-string: 5.0.0
+      strip-indent: 4.0.0
+
   redux-thunk@3.1.0(redux@5.0.1):
     dependencies:
       redux: 5.0.1
@@ -12735,7 +12757,17 @@ snapshots:
       '@types/node': 22.9.1
       fsevents: 2.3.3
 
-  vitest@3.1.2(@types/debug@4.1.12)(@types/node@22.9.1)(@vitest/browser@3.1.2)(jsdom@26.1.0)(msw@2.7.5(@types/node@22.9.1)(typescript@5.6.3)):
+  vitest-dom@0.1.1(vitest@3.1.2):
+    dependencies:
+      aria-query: 5.3.2
+      chalk: 5.4.1
+      css.escape: 1.5.1
+      dom-accessibility-api: 0.6.3
+      lodash-es: 4.17.21
+      redent: 4.0.0
+      vitest: 3.1.2(@types/debug@4.1.12)(@types/node@22.9.1)(@vitest/browser@3.1.2)(happy-dom@17.4.6)(jsdom@26.1.0)(msw@2.7.5(@types/node@22.9.1)(typescript@5.6.3))
+
+  vitest@3.1.2(@types/debug@4.1.12)(@types/node@22.9.1)(@vitest/browser@3.1.2)(happy-dom@17.4.6)(jsdom@26.1.0)(msw@2.7.5(@types/node@22.9.1)(typescript@5.6.3)):
     dependencies:
       '@vitest/expect': 3.1.2
       '@vitest/mocker': 3.1.2(msw@2.7.5(@types/node@22.9.1)(typescript@5.6.3))(vite@5.4.11(@types/node@22.9.1))
@@ -12762,6 +12794,7 @@ snapshots:
       '@types/debug': 4.1.12
       '@types/node': 22.9.1
       '@vitest/browser': 3.1.2(msw@2.7.5(@types/node@22.9.1)(typescript@5.6.3))(playwright@1.52.0)(vite@5.4.11(@types/node@22.9.1))(vitest@3.1.2)
+      happy-dom: 17.4.6
       jsdom: 26.1.0
     transitivePeerDependencies:
       - less
@@ -12840,6 +12873,8 @@ snapshots:
   whatwg-encoding@3.1.1:
     dependencies:
       iconv-lite: 0.6.3
+
+  whatwg-mimetype@3.0.0: {}
 
   whatwg-mimetype@4.0.0: {}
 
