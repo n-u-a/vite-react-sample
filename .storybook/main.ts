@@ -25,7 +25,7 @@ const config: StorybookConfig = {
         },
       },
     },
-    "@storybook/addon-mdx-gfm",
+    // "@storybook/addon-mdx-gfm",
   ],
   docs: {
     // v7 以降で自動 Docs を使いたい場合
