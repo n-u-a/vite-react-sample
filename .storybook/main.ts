@@ -1,5 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 import rehypeMermaid from "rehype-mermaid";
+import remarkGfm from "remark-gfm";
 
 const config: StorybookConfig = {
   framework: { name: "@storybook/react-vite", options: {} },
@@ -20,12 +21,12 @@ const config: StorybookConfig = {
       options: {
         mdxPluginOptions: {
           mdxCompileOptions: {
-            rehypePlugins: [rehypeMermaid], // ← これだけ
+            rehypePlugins: [rehypeMermaid],
+            remarkPlugins: [remarkGfm],
           },
         },
       },
     },
-    // "@storybook/addon-mdx-gfm",
   ],
   docs: {
     // v7 以降で自動 Docs を使いたい場合
