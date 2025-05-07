@@ -1,3 +1,11 @@
+if (import.meta.env.DEV) {
+  // 開発中はAPIがモックされた値を返却するように設定
+  const { worker } = await import("../tests/mocks/browser");
+  await worker.start({
+    onUnhandledRequest: "warn", // テスト同様に警告出力
+  });
+}
+
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";

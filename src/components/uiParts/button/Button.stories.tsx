@@ -73,7 +73,7 @@ export const Secondary: StoryObj<typeof Button> = {
 /*  Loading state                                                             */
 /* -------------------------------------------------------------------------- */
 export const Waiting: StoryObj<typeof Button> = {
-  name: "Waiting",
+  name: "Loading",
   args: {
     isLoading: true,
     name: "Saving…",
