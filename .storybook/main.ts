@@ -1,5 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-vite";
-import remarkMermaid from "remark-mermaidjs";
+import rehypeMermaid from "rehype-mermaid";
 
 const config: StorybookConfig = {
   framework: { name: "@storybook/react-vite", options: {} },
@@ -15,17 +15,17 @@ const config: StorybookConfig = {
       },
     },
     "@storybook/experimental-addon-test",
-    "@storybook/addon-mdx-gfm",
     {
       name: "@storybook/addon-docs",
       options: {
         mdxPluginOptions: {
           mdxCompileOptions: {
-            remarkPlugins: [remarkMermaid],
+            rehypePlugins: [rehypeMermaid], // ← これだけ
           },
         },
       },
     },
+    "@storybook/addon-mdx-gfm",
   ],
   docs: {
     // v7 以降で自動 Docs を使いたい場合

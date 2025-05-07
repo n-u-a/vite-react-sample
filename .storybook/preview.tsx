@@ -29,7 +29,13 @@ const withRouter: Decorator = (Story: StoryFn, ctx: StoryContext) => {
   }
   // それ以外はこれまで通り Router でラップ
   return (
-    <MemoryRouter initialEntries={["/"]}>
+    <MemoryRouter
+      initialEntries={["/"]}
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}
+    >
       <Story />
     </MemoryRouter>
   );
