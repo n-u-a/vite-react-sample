@@ -61,6 +61,7 @@ export const Loading: StoryObj<typeof Search> = {
     // 検索ボタンをクリック
     const btn = canvas.getByRole("button", { name: "検索" });
     await userEvent.click(btn);
+    expect(btn).toHaveAttribute("aria-disabled", "true");
   },
 };
 

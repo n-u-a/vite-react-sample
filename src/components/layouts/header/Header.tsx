@@ -24,18 +24,18 @@ const Header: React.FC<HeaderProps> = ({ pageTitle }) => {
     <header className="mx-auto flex justify-between items-center py-3">
       <h1 className="text-2xl font-extrabold">{pageTitle}</h1>
 
-      <Humberger isOpen={openMenu} toggle={toggleMenuOpen} />
+      <Humberger isOpen={openMenu} toggle={toggleMenuOpen} isInner={false} />
 
       {/* サイドバー */}
-      <nav className={sideBar({ isOpen: openMenu })}>
+      <nav className={sideBar({ isOpen: openMenu })} tabIndex={openMenu ? 0 : -1}>
         <div className="flex justify-between items-center">
           <h2 className="text-xl font-bold my-4 text-left text-gray-900">Menu</h2>
-          <Humberger isOpen={openMenu} toggle={toggleMenuOpen} />
+          <Humberger isOpen={openMenu} toggle={toggleMenuOpen} isInner={true} />
         </div>
 
         <ul className={menuUnorderedList()}>
-          <MenuItem pagePath={Page.MAINTENANCE.path()} pageName={Page.MAINTENANCE.title} />
-          <MenuItem pagePath={Page.SEARCH.path()} pageName={Page.SEARCH.title} />
+          <MenuItem pagePath={Page.MAINTENANCE.path()} pageName={Page.MAINTENANCE.title} isOpen={openMenu} />
+          <MenuItem pagePath={Page.SEARCH.path()} pageName={Page.SEARCH.title} isOpen={openMenu} />
         </ul>
       </nav>
 

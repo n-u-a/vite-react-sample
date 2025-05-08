@@ -4,13 +4,14 @@ import { menuOption } from "@styles/MenuTv";
 interface MenuItemProps {
   pagePath: string;
   pageName: string;
+  isOpen: boolean;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ pagePath, pageName }) => {
+const MenuItem: React.FC<MenuItemProps> = ({ pagePath, pageName, isOpen }) => {
   return (
     <>
       <li>
-        <Link to={pagePath} className={menuOption()}>
+        <Link to={pagePath} className={menuOption()} tabIndex={isOpen ? 0 : -1}>
           <span>{pageName}</span>
         </Link>
       </li>

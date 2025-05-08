@@ -4,9 +4,10 @@ import { humberger, humbergerLineTop, humbergerLineMiddle, humbergerLineBottom }
 interface HumbergerProps {
   isOpen?: boolean; // 外部で制御される開閉状態
   toggle?: () => void; // 外部から開閉を切り替える関数
+  isInner: boolean;
 }
 
-const Humberger: React.FC<HumbergerProps> = ({ isOpen: externalIsOpen, toggle: externalToggle }) => {
+const Humberger: React.FC<HumbergerProps> = ({ isOpen: externalIsOpen, toggle: externalToggle, isInner }) => {
   // 内部で開閉状態を管理するためのステート
   const [internalIsOpen, setInternalIsOpen] = useState(false);
 
@@ -16,7 +17,13 @@ const Humberger: React.FC<HumbergerProps> = ({ isOpen: externalIsOpen, toggle: e
   const toggle = isControlled ? externalToggle : () => setInternalIsOpen((prev) => !prev);
   return (
     <>
-      <button onClick={toggle} type="button" aria-description="menu" className={humberger()}>
+      <button
+        onClick={toggle}
+        type="button"
+        aria-description="menu"
+        className={humberger()}
+        tabIndex={!isInner ? 0 : isOpen ? 0 : -1}
+      >
         <div className={humbergerLineTop({ isOpen: isOpen })} />
         <div className={humbergerLineMiddle({ isOpen: isOpen })} />
         <div className={humbergerLineBottom({ isOpen: isOpen })} />
