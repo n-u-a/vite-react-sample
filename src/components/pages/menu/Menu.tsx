@@ -10,8 +10,8 @@ const Menu: React.FC = () => {
       <Header pageTitle="メニュー" />
 
       <ul className={menuUnorderedList()}>
-        <MenuItem pagePath={Page.MAINTENANCE.path()} pageName={Page.MAINTENANCE.title} />
-        <MenuItem pagePath={Page.SEARCH.path()} pageName={Page.SEARCH.title} />
+        <MenuItem pagePath={Page.MAINTENANCE.path()} pageName={Page.MAINTENANCE.title} isOpen={true} />
+        <MenuItem pagePath={Page.SEARCH.path()} pageName={Page.SEARCH.title} isOpen={true} />
       </ul>
       <Footer />
     </>
