@@ -29,7 +29,6 @@ const config: StorybookConfig = {
     },
     "@storybook/addon-links",
     "@storybook/addon-a11y",
-    "@storybook/addon-interactions",
   ],
   docs: {
     // v7 以降で自動 Docs を使いたい場合
