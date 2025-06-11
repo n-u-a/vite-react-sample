@@ -55,9 +55,9 @@ export function isEmpty(object: any) {
 }
 
 export function isNotNullish(object: any) {
-  return object != null && object == undefined && object !== "";
+  return object !== null && object !== undefined && object !== "";
 }
 
-export function isNotEmpty(str: String) {
-  return str != null && str == undefined && str !== "";
+export function isNotEmpty(str: string) {
+  return str !== null && str !== undefined && str !== "";
 }
