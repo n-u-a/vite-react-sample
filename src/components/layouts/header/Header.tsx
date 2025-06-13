@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { sideBar } from "@styles/HeaderTv";
 import MenuItem from "@components/usecases/menu/listItem/MenuItem";
-import Humberger from "@components/uiParts/button/Humberger";
+import Hamburger from "@components/uiParts/button/Hamburger";
 import { Page } from "@constants/PageConstants";
 import { menuUnorderedList } from "@styles/MenuTv";
 
@@ -24,13 +24,13 @@ const Header: React.FC<HeaderProps> = ({ pageTitle }) => {
     <header className="mx-auto flex justify-between items-center py-3">
       <h1 className="text-2xl font-extrabold">{pageTitle}</h1>
 
-      <Humberger isOpen={openMenu} toggle={toggleMenuOpen} isInner={false} />
+      <Hamburger isOpen={openMenu} toggle={toggleMenuOpen} isInner={false} />
 
       {/* サイドバー */}
       <nav className={sideBar({ isOpen: openMenu })} tabIndex={openMenu ? 0 : -1}>
         <div className="flex justify-between items-center">
           <h2 className="text-xl font-bold my-4 text-left text-gray-900">Menu</h2>
-          <Humberger isOpen={openMenu} toggle={toggleMenuOpen} isInner={true} />
+          <Hamburger isOpen={openMenu} toggle={toggleMenuOpen} isInner={true} />
         </div>
 
         <ul className={menuUnorderedList()}>

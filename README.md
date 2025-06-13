@@ -3,6 +3,13 @@
 1. [プロジェクトの初期設定方法]
 2. [開発の基本的な流れ]
 
+## 前提条件
+
+- Node.js 20.10.0 以上がインストールされていること
+- パッケージマネージャーには **pnpm** を使用します。`corepack enable` したうえで
+  `corepack prepare pnpm@latest --activate` を実行してください。
+- Storybook のテストをローカルで動かす場合は `pnpm exec playwright install --with-deps` を実行し、ブラウザを取得してください。
+
 ## プロジェクトの初期設定方法
 [プロジェクトの初期設定方法]: #プロジェクトの初期設定方法
 

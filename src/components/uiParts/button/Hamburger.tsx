@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { humberger, humbergerLineTop, humbergerLineMiddle, humbergerLineBottom } from "@styles/HeaderTv";
+import { hamburger, hamburgerLineTop, hamburgerLineMiddle, hamburgerLineBottom } from "@styles/HeaderTv";
 
-interface HumbergerProps {
+interface HamburgerProps {
   isOpen?: boolean; // 外部で制御される開閉状態
   toggle?: () => void; // 外部から開閉を切り替える関数
   isInner: boolean;
 }
 
-const Humberger: React.FC<HumbergerProps> = ({ isOpen: externalIsOpen, toggle: externalToggle, isInner }) => {
+const Hamburger: React.FC<HamburgerProps> = ({ isOpen: externalIsOpen, toggle: externalToggle, isInner }) => {
   // 内部で開閉状態を管理するためのステート
   const [internalIsOpen, setInternalIsOpen] = useState(false);
 
@@ -21,15 +21,15 @@ const Humberger: React.FC<HumbergerProps> = ({ isOpen: externalIsOpen, toggle: e
         onClick={toggle}
         type="button"
         aria-description="menu"
-        className={humberger()}
+        className={hamburger()}
         tabIndex={!isInner ? 0 : isOpen ? 0 : -1}
       >
-        <div className={humbergerLineTop({ isOpen: isOpen })} />
-        <div className={humbergerLineMiddle({ isOpen: isOpen })} />
-        <div className={humbergerLineBottom({ isOpen: isOpen })} />
+        <div className={hamburgerLineTop({ isOpen: isOpen })} />
+        <div className={hamburgerLineMiddle({ isOpen: isOpen })} />
+        <div className={hamburgerLineBottom({ isOpen: isOpen })} />
       </button>
     </>
   );
 };
 
-export default Humberger;
+export default Hamburger;

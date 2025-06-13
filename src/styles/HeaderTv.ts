@@ -14,15 +14,15 @@ export const sideBar = tv({
   },
 });
 
-export const humberger = tv({
+export const hamburger = tv({
   base: "space-y-2 rounded-lg z-10 w-10 px-1 py-2 hover:bg-gray-200 flex flex-col justify-between items-center group",
 });
 
-export const humbergerLineBase = tv({
+export const hamburgerLineBase = tv({
   base: "w-4/5 h-0.5 bg-gray-400 duration-300 ease-in-out group-hover:bg-gray-700",
 });
-export const humbergerLineTop = tv({
-  extend: humbergerLineBase,
+export const hamburgerLineTop = tv({
+  extend: hamburgerLineBase,
   base: "transition-transform",
   variants: {
     isOpen: {
@@ -30,8 +30,8 @@ export const humbergerLineTop = tv({
     },
   },
 });
-export const humbergerLineMiddle = tv({
-  extend: humbergerLineBase,
+export const hamburgerLineMiddle = tv({
+  extend: hamburgerLineBase,
   base: "transition-opacity",
   variants: {
     isOpen: {
@@ -39,8 +39,8 @@ export const humbergerLineMiddle = tv({
     },
   },
 });
-export const humbergerLineBottom = tv({
-  extend: humbergerLineBase,
+export const hamburgerLineBottom = tv({
+  extend: hamburgerLineBase,
   base: "transition-transform",
   variants: {
     isOpen: {
